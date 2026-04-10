@@ -1,0 +1,13 @@
+// Landing page components barrel export
+export { LandingNavbar } from './LandingNavbar';
+export { LandingHero } from './LandingHero';
+export { LandingProducts } from './LandingProducts';
+export { LandingRoomConfigs } from './LandingRoomConfigs';
+export { LandingHowItWorks } from './LandingHowItWorks';
+export { LandingGallery } from './LandingGallery';
+export { LandingCoupDeCoeur } from './LandingCoupDeCoeur';
+export { LandingAboutUs } from './LandingAboutUs';
+export { LandingFAQ } from './LandingFAQ';
+export { LandingCTA } from './LandingCTA';
+export { LandingFooter } from './LandingFooter';
+export { theme } from './theme';

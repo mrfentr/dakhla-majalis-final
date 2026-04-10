@@ -1,0 +1,1116 @@
+{
+  "common": {
+    "brand": "Dakhla Majalis",
+    "currency": "MAD",
+    "nav": {
+      "products": "Our Products",
+      "howWeWork": "How We Work",
+      "faq": "FAQ",
+      "contact": "Contact Us",
+      "gallery": "Our Work",
+      "coupDeCoeur": "Highlights",
+      "about": "About Us"
+    },
+    "cta": {
+      "designYourMajlis": "Design Your Majlis",
+      "startDesigning": "Start Designing Now",
+      "viewProducts": "View Products",
+      "tryToolNow": "Try the Tool Now",
+      "designNow": "Design Your Majlis Now",
+      "contactUs": "Contact Us",
+      "calculateNow": "Calculate Your Majlis Now",
+      "viewAll": "View All",
+      "showLess": "Show Less",
+      "showAllPhotos": "See All Photos ({count})"
+    },
+    "trustBadges": {
+      "deliveryAllMorocco": "Delivery to all Moroccan cities",
+      "warranty25Years": "25-year warranty on foam",
+      "returnPolicy": "Return option available",
+      "support247": "24/7 continuous support",
+      "qualityGuarantee": "Quality guaranteed",
+      "deliveryMorocco": "Delivery across Morocco",
+      "securePayment": "Secure payment"
+    },
+    "aria": {
+      "cart": "Cart",
+      "closeMenu": "Close menu",
+      "openMenu": "Open menu",
+      "closeLightbox": "Close gallery",
+      "previousImage": "Previous image",
+      "nextImage": "Next image"
+    },
+    "footer": {
+      "description": "Authentic Moroccan craftsmanship since 2023. We design and handcraft luxury traditional seating fit for your home.",
+      "quickLinks": "Quick Links",
+      "contactUs": "Contact Us",
+      "paymentMethods": "Payment Methods",
+      "bankTransfer": "Bank Transfer",
+      "gallery": "Photo Gallery",
+      "designTool": "Design Tool",
+      "location": "Dakhla, Morocco",
+      "copyright": "© 2026 Dakhla Majalis. All rights reserved.",
+      "shipping": "Shipping",
+      "cgv": "Terms of Sale",
+      "returnPolicy": "Return Policy",
+      "informations": "Information"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "100% authentic Moroccan craftsmanship",
+      "titleLine1": "From Dakhla",
+      "titleLine2": "to All of Morocco",
+      "subtitle": "First brand specialized in Saharan majalis in Morocco🇲🇦",
+      "description": "We craft Saharan floor seating and traditional wool tents. We always innovate because that is what lovers of Moroccan heritage deserve.",
+      "ctaPrimary": "Start designing now",
+      "ctaSecondary": "View products",
+      "socialProof1Title": "Featured on Channel One",
+      "socialProof1Sub": "Abaq Atourath program",
+      "socialProof2Title": "International Agriculture Fair",
+      "socialProof2Sub": "Dakhla region pavilion 2025",
+      "delivery": "Delivery 10-15 days",
+      "guarantee": "25-year warranty",
+      "guaranteeSub": "Bunge Dolidol"
+    },
+    "products": {
+      "badge": "Our Products",
+      "title": "The Authenticity of the Sahara at Your Fingertips",
+      "description": "Saharan seating, wool tents, and carefully selected accessories, handcrafted with care from the heart of Dakhla",
+      "browseByCategory": "Browse by Category",
+      "loading": "Loading products...",
+      "productCount": "product",
+      "productCountPlural": "products",
+      "mostPopular": "Most Popular",
+      "fullSet": "Full Set",
+      "priceCalculated": "Price based on dimensions",
+      "customCtaTitle": "Want a majlis tailored to your space?",
+      "customCtaDescription": "Use our smart measurement tool to calculate the perfect majlis for your room",
+      "soldOut": "Sold Out"
+    },
+    "roomConfigs": {
+      "badge": "Room Configurations",
+      "title": "We Design for Any Room Shape",
+      "description": "Whether your room is square or rectangular, we provide seating solutions that fit every space",
+      "singleWallTitle": "Single Wall",
+      "singleWallDescription": "Seating along one wall",
+      "singleWallWalls": "1 wall",
+      "lShapeTitle": "L-Shape",
+      "lShapeDescription": "Corner seating on two walls",
+      "lShapeWalls": "2 walls",
+      "uShapeTitle": "U-Shape",
+      "uShapeDescription": "Seating on three walls",
+      "uShapeWalls": "3 walls",
+      "fullRoomTitle": "Full Room",
+      "fullRoomDescription": "Seating on all four walls with door opening",
+      "fullRoomWalls": "4 walls"
+    },
+    "howItWorks": {
+      "badge": "How We Work",
+      "title": "From Measurement to Installation in 4 Steps",
+      "description": "A smart tool that calculates the number of pieces you need and shows you your majlis design before ordering",
+      "step1Num": "1",
+      "step1Title": "Measure Your Room",
+      "step1Description": "Enter your room wall measurements in centimeters",
+      "step2Num": "2",
+      "step2Title": "View the Design",
+      "step2Description": "We show you a 3D preview of your majlis",
+      "step3Num": "3",
+      "step3Title": "Place Your Order",
+      "step3Description": "Confirm your order and enter delivery details",
+      "step4Num": "4",
+      "step4Title": "Delivered to Your Door",
+      "step4Description": "We craft and deliver your majlis anywhere in Morocco"
+    },
+    "measurement": {
+      "badge": "✨ Exclusive Smart Tool",
+      "title": "Design Your Majlis Before Buying",
+      "description": "Our smart tool takes your room measurements and automatically calculates the number of pieces needed, with a visual preview of how the majlis will look in your room. No surprises, no measurement errors.",
+      "feature1": "Automatic calculation of seats and cushions",
+      "feature2": "3D visual preview of the design",
+      "feature3": "Easy color and fabric customization",
+      "feature4": "Instant total price display",
+      "mockupTitle": "Majlis Design Tool",
+      "wall1Label": "First Wall",
+      "wall1Value": "320 cm",
+      "wall2Label": "Second Wall",
+      "wall2Value": "280 cm",
+      "layoutLabel": "Layout Type",
+      "layoutValue": "U-Shape",
+      "resultLabel": "Result:",
+      "resultSeats": "4 seats",
+      "resultCushions": "8 cushions",
+      "resultTotal": "Total: 4,800 MAD",
+      "doorLabel": "Door →"
+    },
+    "gallery": {
+      "badge": "Our Portfolio",
+      "title": "Handcrafted in Dakhla",
+      "description": "Discover majlis seating we have crafted for our clients across Moroccan cities — every majlis tells a story, every design is a masterpiece",
+      "imageCount": "photos of our work",
+      "imageAlt": "Dakhla Majalis Gallery {number}",
+      "swipeHint": "Swipe left or right to navigate",
+      "testimonial1Quote": "\"The measurement tool saved us so much time and effort. The majlis fit perfectly in our room!\"",
+      "testimonial1Name": "Fatima Zahra",
+      "testimonial1City": "Casablanca",
+      "testimonial2Quote": "\"The material quality is excellent and the delivery was on time. Our living room has become a work of art thanks to Dakhla Majalis.\"",
+      "testimonial2Name": "Mohammed Amine",
+      "testimonial2City": "Marrakech",
+      "testimonial3Quote": "\"The best investment for our living room. The seating is very comfortable and the colors matched my expectations perfectly.\"",
+      "testimonial3Name": "Khadija Benameur",
+      "testimonial3City": "Fez"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Questions from Our Customers",
+      "description": "Clear answers to everything you need to know",
+      "q1": "How long does it take to manufacture and deliver the majlis?",
+      "a1": "The delivery time for Saharan seating is 10 to 15 days from the date the deposit is received. We ensure top quality at every stage of manufacturing.",
+      "q2": "How does payment and delivery work?",
+      "a2": "Payment is in two installments: a 50% deposit via bank transfer, and the remaining 50% is paid to the delivery company \"Amana\" upon receipt. Delivery fees are a symbolic 100 MAD, payable upon foam delivery.",
+      "q3": "What materials are used in making the seating?",
+      "a3": "We use premium woven cotton fabric and Dolidol HD 5 Bassmat foam — number 1 quality with a 25-year warranty. Authentic Saharan seating can only be made with authentic materials.",
+      "q4": "What are the dimensions of the Saharan seating?",
+      "a4": "We make Saharan floor seating that is 15 cm high and 70 cm wide. If you want seating higher than 15 cm, you can place it on a raised wooden platform.",
+      "q5": "Can I return the majlis if I don't like it?",
+      "a5": "Yes, to encourage you to order from us, we offer a full refund if you are not satisfied with the Saharan seating within 3 days of delivery.",
+      "q6": "Can I see the material quality before ordering?",
+      "a6": "For the foam: you can ask your nearest mattress maker about the quality of Dolidol HD 5 Bassmat foam. For the fabric: we can send you a sample to inspect the quality.",
+      "q7": "How do I care for the Saharan seating?",
+      "a7": "It is recommended to wash the fabrics inside out, using cold water or at a temperature not exceeding 30°C. Tumble drying is prohibited; let the fabrics air dry naturally. Avoid poking or pulling the fabric with sharp objects to preserve its luxurious texture and natural sheen.",
+      "q8": "Can the seating be used indoors and outdoors?",
+      "a8": "Our products are handmade with premium quality to suit various spaces: living rooms, tents, restaurants, offices — making them ideal for both indoor and outdoor use. They work in the living room, den, balcony, tent, or garden."
+    },
+    "cta": {
+      "title": "Ready to Furnish Your Living Room?",
+      "description": "Start now with our free design tool and get the majlis of your dreams"
+    }
+  },
+  "products": {
+    "title": "Our Products from the Heart of the Sahara",
+    "titleWithCategory": "{category} - Dakhla Majalis",
+    "subtitle": "Traditional Saharan floor seating, handcrafted cushions, and home accessories. Made by artisans from Dakhla.",
+    "subtitleWithCategory": "Browse the {category} collection from Dakhla Majalis. Handcrafted by Moroccan artisans.",
+    "badge": "Made in Dakhla",
+    "loading": "Loading products...",
+    "search": {
+      "placeholder": "Search for a product...",
+      "showing": "Showing",
+      "product": "product"
+    },
+    "filters": {
+      "categories": "Categories",
+      "subcategories": "Subcategories",
+      "all": "All"
+    },
+    "sort": {
+      "label": "Sort by",
+      "popular": "Most Popular",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low"
+    },
+    "badges": {
+      "popular": "Most Requested",
+      "fullMajlis": "Full Majlis",
+      "soldOut": "Sold Out"
+    },
+    "breadcrumb": {
+      "products": "Products"
+    },
+    "empty": {
+      "title": "No products found",
+      "description": "No products match your search"
+    },
+    "price": {
+      "currency": "MAD",
+      "calculatedAutomatically": "Calculated automatically",
+      "calculatedBySize": "Calculated by size"
+    },
+    "size": {
+      "cm": "cm",
+      "bySpace": "By space"
+    },
+    "cta": {
+      "title": "Want a majlis tailored to your space?",
+      "description": "Use our smart measurement tool to calculate the perfect majlis for your room",
+      "button": "Calculate your majlis"
+    }
+  },
+  "productDetail": {
+    "breadcrumb": {
+      "home": "Home",
+      "products": "Products"
+    },
+    "notFound": {
+      "title": "Product Not Found",
+      "backHome": "Back to Home"
+    },
+    "price": {
+      "currency": "MAD"
+    },
+    "stock": {
+      "inStock": "{count} piece(s) available",
+      "outOfStock": "Currently out of stock",
+      "onDemand": "Available on order",
+      "maxReached": "Maximum available quantity: {count}"
+    },
+    "description": "Description",
+    "features": "Features",
+    "specifications": {
+      "title": "Specifications",
+      "materials": "Materials",
+      "colors": "Colors",
+      "patterns": "Patterns",
+      "glassatWidth": "Seat width",
+      "glassatHeight": "Seat height",
+      "wsaydWidth": "Cushion width",
+      "wsaydHeight": "Cushion height",
+      "cm": "cm"
+    },
+    "chooseColor": "Choose Color",
+    "colorGallery": "{color} Gallery",
+    "colorGalleryClose": "Close Gallery",
+    "priceBySize": "Based on dimensions",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to cart",
+    "buyNow": "Buy Now",
+    "designNow": "Design Your Majlis",
+    "orderWhatsapp": "Order via WhatsApp",
+    "freeConsultation": "Free Consultation",
+    "whatsapp": {
+      "message": "Hello, I'm interested in the product: {product}\nPrice: {price} MAD\nQuantity: {quantity}\nProduct link: {url}"
+    },
+    "trustBadges": {
+      "freeDelivery": "Free Delivery",
+      "freeDeliveryDesc": "To all cities",
+      "handmade": "Handcrafted",
+      "handmadeDesc": "From the heart of Dakhla"
+    },
+    "reviews": {
+      "title": "Reviews",
+      "count": "review",
+      "addReview": "Write a Review",
+      "shareOpinion": "Share Your Opinion",
+      "yourRating": "Your Rating",
+      "name": "Name",
+      "namePlaceholder": "Your name...",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "comment": "Your Comment",
+      "commentPlaceholder": "Share your experience with this product...",
+      "submit": "Submit Review",
+      "submitting": "Submitting...",
+      "cancel": "Cancel",
+      "successMessage": "Your review was submitted successfully! It will appear after approval.",
+      "errorMessage": "An error occurred while submitting your review",
+      "errorSelectRating": "Please select a rating",
+      "errorEnterName": "Please enter your name",
+      "errorEnterEmail": "Please enter your email",
+      "errorEnterComment": "Please write your comment",
+      "noReviews": "No reviews yet. Be the first to review this product!",
+      "verifiedBuyer": "Verified Buyer"
+    },
+    "relatedProducts": "You May Also Like",
+    "gallery": {
+      "nextImage": "Next image",
+      "prevImage": "Previous image",
+      "imageN": "Image {n}"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Add products from the list below"
+    },
+    "total": "Total",
+    "currency": "MAD",
+    "checkout": "Proceed to Checkout",
+    "continueShopping": "Continue Shopping",
+    "suggestions": {
+      "addAlso": "Add also",
+      "readyProducts": "Ready products",
+      "customMajlis": "Custom-sized majlis",
+      "calculatedBySize": "Calculated by size"
+    },
+    "floatingButtons": {
+      "scrollToTop": "Scroll to top",
+      "customMeasurement": "Custom room measurement",
+      "shoppingCart": "Shopping cart",
+      "whatsapp": "Contact us on WhatsApp",
+      "whatsappMessage": "Hello, I have a question and would like your help please"
+    }
+  },
+  "checkout": {
+    "brandName": "Dakhla Majalis",
+    "help": "Help",
+    "steps": {
+      "measurements": "Room Measurements",
+      "preview": "Design Preview",
+      "deliveryPayment": "Delivery & Payment"
+    },
+    "roomConfigs": {
+      "singleWall": {
+        "title": "Single Wall",
+        "desc": "Simple seating on one wall"
+      },
+      "lShape": {
+        "title": "L-Shape",
+        "desc": "Corner seating on two walls"
+      },
+      "uShape": {
+        "title": "U-Shape",
+        "desc": "Seating on three walls"
+      },
+      "fullRoom": {
+        "title": "Full Room",
+        "desc": "Seating around four walls"
+      }
+    },
+    "step1": {
+      "selectProductTitle": "Choose the Majlis Type",
+      "selectProductSubtitle": "Select the majlis that suits your taste",
+      "selectRoomTitle": "Choose Your Room Layout",
+      "selectRoomSubtitle": "Select the number of walls you want to furnish",
+      "measurementsTitle": "Enter Wall Measurements in Centimeters",
+      "measurementsSubtitle": "Measure from the start to the end of the wall. If there is a door, subtract its width.",
+      "measurementsTip": "Measure from the start to the end of the wall. If there is a door, subtract its width from the measurement.",
+      "productInfoLabel": "Product Info",
+      "selectedBadge": "Selected",
+      "scrollToConfig": "Continue — Choose Room Layout",
+      "changeProduct": "Change Product",
+      "soldOutTitle": "Sold Out",
+      "soldOutMessage": "This product is currently unavailable. Please choose a different product."
+    },
+    "measurements": {
+      "wallLength": "Wall Length",
+      "horizontalWall": "Horizontal Wall",
+      "verticalWall": "Vertical Wall",
+      "leftWall": "Left Wall",
+      "centerWall": "Center Wall",
+      "rightWall": "Right Wall",
+      "topWall": "Top Wall",
+      "leftToDoor": "Left to Door",
+      "doorToRight": "Door to Right"
+    },
+    "step2": {
+      "optimizingTitle": "Calculating the Optimal Design...",
+      "optimizingSubtitle": "We're calculating the best piece distribution based on your measurements",
+      "errorTitle": "An Error Occurred",
+      "retryButton": "Try Again",
+      "previewTitle": "Preview Your Majlis Design",
+      "previewSubtitle": "This is the optimal design based on your room measurements",
+      "glssaPieces": "Seat Pieces",
+      "wssadaPieces": "Cushion Pieces",
+      "coudoir": "Coudoir",
+      "currency": "MAD",
+      "freeShipping": "Free delivery to all cities in Morocco",
+      "wallDetails": "Piece Details Per Wall",
+      "voidGap": "Gap of {value}cm",
+      "fullCoverage": "Full coverage",
+      "zoomOut": "Zoom out",
+      "zoomIn": "Zoom in",
+      "fitToView": "Fit to view",
+      "downloadMobile": "Download",
+      "downloadDesktop": "Download JPEG",
+      "floorPlanPreview": "Majlis preview",
+      "piecesList": "Required Pieces List"
+    },
+    "step3": {
+      "title": "Delivery Information",
+      "subtitle": "Enter your details so we can contact you and deliver your order"
+    },
+    "form": {
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "Enter your full name",
+      "phone": "Phone Number (WhatsApp) *",
+      "phonePlaceholder": "0612345678",
+      "emailOptional": "Email Address (optional)",
+      "emailPlaceholder": "example@email.com",
+      "city": "City *",
+      "cityPlaceholder": "Enter city name",
+      "address": "Full Address *",
+      "addressPlaceholder": "Neighborhood, street, house number..."
+    },
+    "validation": {
+      "nameMinLength": "Name must be at least 3 characters",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "cityRequired": "Please enter the city name",
+      "addressRequired": "Please enter the address",
+      "selectProduct": "Please select a majlis type",
+      "productSoldOut": "This product is currently unavailable. Please choose a different product.",
+      "invalidMeasurementsMin": "Minimum {min} cm",
+      "invalidMeasurementsMax": "Maximum {max} cm",
+      "invalidMeasurements": "The entered measurements are invalid. Please check and try again.",
+      "calculationError": "An error occurred while calculating the design. Please try again.",
+      "submitError": "An error occurred while submitting the order. Please try again."
+    },
+    "summary": {
+      "title": "Order Summary",
+      "roomShape": "Room Layout",
+      "majlisCount": "{count, plural, one {# majlis set} other {# majlis sets}}",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total",
+      "currency": "MAD",
+      "currencyShort": "MAD",
+      "additionalItemsTotal": "Additional items"
+    },
+    "actions": {
+      "confirmOrder": "Confirm Order",
+      "nextPreview": "Next: Design Preview",
+      "nextDelivery": "Next: Delivery & Payment",
+      "previewMobile": "Design Preview",
+      "deliveryMobile": "Delivery & Payment",
+      "back": "Back"
+    },
+    "modal": {
+      "close": "Close",
+      "specifications": "Specifications",
+      "materials": "Materials:",
+      "colors": "Colors:",
+      "patterns": "Patterns:",
+      "features": "Features",
+      "included": "Includes",
+      "selectThis": "Select This Majlis",
+      "imageAlt": "Image {index}"
+    },
+    "additionalItems": {
+      "sectionTitle": "Add More Items",
+      "sectionSubtitle": "Add tables or other accessories to your order",
+      "addButton": "Add",
+      "addedButton": "Added",
+      "removeButton": "Remove",
+      "noProducts": "No products available",
+      "selectedItems": "Selected items",
+      "itemAdded": "Item added"
+    },
+    "extras": {
+      "tapis": "Carpet",
+      "tapisAr": "زربية",
+      "pouf": "Pouf",
+      "poufAr": "بوف",
+      "sacDecoration": "Decoration bag",
+      "sacDecorationAr": "كيس ديكور",
+      "petitCoussins": "Small cushions 40×40cm",
+      "petitCoussinsAr": "وسائد صغيرة 40×40",
+      "selectSize": "Select size",
+      "perUnit": "per unit"
+    },
+    "subcategories": {
+      "viewAll": "View All",
+      "addSubcategory": "Add subcategory",
+      "parentCategory": "Parent category",
+      "noParent": "None (top-level)",
+      "subcategory": "Subcategory"
+    }
+  },
+  "directCheckout": {
+    "brandName": "Dakhla Majalis",
+    "help": "Help",
+    "steps": {
+      "orderSummary": "Order Summary",
+      "deliveryInfo": "Delivery Info"
+    },
+    "step1": {
+      "title": "Order Summary",
+      "subtitle": "Review your products before proceeding",
+      "emptyTitle": "No Products",
+      "emptySubtitle": "Add products to your cart first",
+      "browseProducts": "Browse Products"
+    },
+    "step2": {
+      "title": "Delivery Information",
+      "subtitle": "Enter your details so we can contact you and deliver your order"
+    },
+    "form": {
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "Enter your full name",
+      "phone": "Phone Number (WhatsApp) *",
+      "phonePlaceholder": "0612345678",
+      "email": "Email Address *",
+      "emailPlaceholder": "example@email.com",
+      "city": "City *",
+      "cityPlaceholder": "Enter city name",
+      "address": "Full Address *",
+      "addressPlaceholder": "Neighborhood, street, house number..."
+    },
+    "validation": {
+      "nameMinLength": "Name must be at least 3 characters",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone number (e.g., 0612345678)",
+      "cityRequired": "Please enter the city name",
+      "addressMinLength": "Address must be at least 10 characters",
+      "submitError": "An error occurred while submitting the order. Please try again."
+    },
+    "summary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total",
+      "totalShort": "Total",
+      "currency": "MAD"
+    },
+    "actions": {
+      "confirmOrder": "Confirm Order",
+      "nextDelivery": "Next: Delivery Info",
+      "continueMobile": "Continue",
+      "back": "Back"
+    }
+  },
+  "thankYou": {
+    "loading": "Loading order details...",
+    "notFound": {
+      "title": "Order Not Found",
+      "noReference": "No order number specified",
+      "notFoundMessage": "We couldn't find this order",
+      "backToHome": "Back to Home"
+    },
+    "brandName": "Dakhla Majalis",
+    "homeButton": "Home",
+    "title": "Thank You{name}!",
+    "subtitle": "Your order has been received successfully",
+    "description": "We will review your order and contact you within 24 hours to confirm the delivery date",
+    "orderRef": "Order Number:",
+    "copyOrderRef": "Copy order number",
+    "whatsapp": {
+      "title": "We'll contact you via WhatsApp",
+      "description": "We'll discuss pricing details and payment method with you via WhatsApp. You can also contact us directly using the button below.",
+      "cta": "Contact Us via WhatsApp",
+      "messageIntro": "Hello, I would like to confirm my order",
+      "orderRefLabel": "Order Number:",
+      "nameLabel": "Name:",
+      "majlisTypeLabel": "Majlis type:",
+      "seatingCountLabel": "Number of seats:",
+      "cushionCountLabel": "Number of cushions:",
+      "productsLabel": "Products:",
+      "totalLabel": "Total amount:",
+      "cityLabel": "City:",
+      "closingMessage": "Awaiting pricing details and payment method. Thank you!"
+    },
+    "nextSteps": {
+      "title": "Next Steps:",
+      "directPurchase": {
+        "step1": "We review your order",
+        "step2": "We contact you to confirm the order and the deposit payment method",
+        "step3": "After receiving the deposit, we start manufacturing",
+        "step4": "Delivery within 5 to 7 days from the deposit payment date"
+      },
+      "roomMeasurement": {
+        "step1": "We review your order",
+        "step2": "We contact you to confirm the order and the deposit payment method",
+        "step3": "After receiving the deposit, we start manufacturing",
+        "step4": "Delivery within 10 to 20 days from the deposit payment date"
+      }
+    },
+    "callUs": "Or call us:",
+    "orderDetails": {
+      "title": "Your Order Details",
+      "status": "Under Review",
+      "designPreview": "Majlis Preview",
+      "downloadDesign": "Download Majlis Design",
+      "design": "Design",
+      "glssaUnit": "seat(s)",
+      "cushionCount": "Number of Cushions",
+      "cushionUnit": "cushion(s)",
+      "deliveryTo": "Delivery to",
+      "total": "Total",
+      "currency": "MAD"
+    },
+    "layoutTypes": {
+      "singleWall": "Single Wall",
+      "lShape": "L-Shape",
+      "uShape": "U-Shape",
+      "fourWalls": "Four Walls"
+    },
+    "payment": {
+      "title": "Payment by Bank Transfer",
+      "description": "The order is confirmed after contacting you and payment of a 50% deposit",
+      "depositAmount": "Deposit to pay (50%)",
+      "fullAmount": "Full amount"
+    }
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "We're Here to Help",
+    "subtitle": "Reach out to us for any inquiry or request. Our team is ready to serve you and design the majlis of your dreams",
+    "form": {
+      "title": "Send Us a Message",
+      "subtitle": "Fill out the form below and we'll get back to you as soon as possible",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+212 6XX XXX XXX",
+      "subject": "Subject",
+      "subjectPlaceholder": "Product inquiry, custom order...",
+      "message": "Your Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send via WhatsApp"
+    },
+    "whatsapp": {
+      "greeting": "Hello, I would like to get in touch",
+      "nameLabel": "Name:",
+      "phoneLabel": "Phone:",
+      "emailLabel": "Email:",
+      "subjectLabel": "Subject:",
+      "messageLabel": "Message:"
+    },
+    "info": {
+      "title": "Contact Information",
+      "subtitle": "You can reach us through any of the following channels",
+      "phoneLabel": "Phone",
+      "phoneValue": "+212 657-059044",
+      "emailLabel": "Email",
+      "emailValue": "contact@dakhlamajalis.com",
+      "addressLabel": "Address",
+      "addressValue": "Dakhla, Morocco",
+      "hoursLabel": "Working Hours",
+      "hoursValue": "Monday - Saturday: 9:00 AM - 7:00 PM"
+    },
+    "social": {
+      "followUs": "Follow us on"
+    },
+    "map": {
+      "badge": "Our Location",
+      "title": "Visit Us",
+      "subtitle": "We welcome you to our showroom to explore our collection of traditional salons"
+    }
+  },
+  "privacy": {
+    "badge": "Privacy Policy",
+    "title": "Personal Data Protection Policy",
+    "intro": "We are committed to protecting your privacy and personal data in accordance with Moroccan Law No. 09-08 on the Protection of Individuals with Regard to the Processing of Personal Data.",
+    "lastUpdated": "Last updated: October 4, 2025",
+    "sections": {
+      "dataController": {
+        "title": "1. Data Controller",
+        "description": "{company} (hereinafter referred to as \"we\" or \"the Company\") is the controller responsible for processing your personal data.",
+        "company": "Dakhla Majalis",
+        "tradeName": "Trade Name:",
+        "tradeNameValue": "Dakhla Majalis",
+        "address": "Address:",
+        "addressValue": "Al Wahda District, behind Jarda August 14 - Dakhla, Kingdom of Morocco",
+        "email": "Email:",
+        "emailValue": "contact@dakhlamajalis.com",
+        "phone": "Phone:",
+        "phoneValue": "+212 657-059044"
+      },
+      "dataCollection": {
+        "title": "2. Data We Collect",
+        "description": "We collect the following personal data:",
+        "identityInfo": "Identity Information:",
+        "identityInfoDesc": "Full name",
+        "contactInfo": "Contact Information:",
+        "contactInfoDesc": "Email address, phone number, postal address",
+        "orderInfo": "Order Information:",
+        "orderInfoDesc": "Product details, measurements, notes",
+        "technicalData": "Technical Data:",
+        "technicalDataDesc": "IP address, browser type, device used (to improve user experience)"
+      },
+      "dataUsage": {
+        "title": "3. Purpose of Data Collection",
+        "description": "We use your personal data for the following purposes:",
+        "orderProcessing": "Order Processing:",
+        "orderProcessingDesc": "To receive and process your orders for products and custom designs",
+        "communication": "Communication:",
+        "communicationDesc": "To respond to your inquiries and communicate with you regarding your orders",
+        "improvement": "Improvement:",
+        "improvementDesc": "To improve our services and user experience on our website",
+        "legalCompliance": "Legal Compliance:",
+        "legalComplianceDesc": "To comply with our legal and regulatory obligations"
+      },
+      "legalBasis": {
+        "title": "4. Legal Basis for Processing",
+        "description": "We process your personal data on the basis of:",
+        "consent": "Your Consent:",
+        "consentDesc": "When you submit an order or fill out a form on our website",
+        "contractExecution": "Performance of Contract:",
+        "contractExecutionDesc": "To process your orders and provide our services",
+        "legitimateInterest": "Legitimate Interest:",
+        "legitimateInterestDesc": "To improve our services and protect our business"
+      },
+      "dataSharing": {
+        "title": "5. Data Sharing",
+        "description": "We do not sell or rent your personal data to any third party. We may share your data only in the following cases:",
+        "serviceProviders": "Service Providers:",
+        "serviceProvidersDesc": "Delivery companies and technical assistants who help us provide our services",
+        "legalObligations": "Legal Obligations:",
+        "legalObligationsDesc": "When required by Moroccan law",
+        "importantNote": "Important Note:",
+        "importantNoteDesc": "We do not process any financial payments on our website. All financial transactions are conducted directly between the customer and the Company after contact."
+      },
+      "yourRights": {
+        "title": "6. Your Rights",
+        "description": "In accordance with Moroccan Law No. 09-08, you have the following rights:",
+        "accessRight": "Right of Access:",
+        "accessRightDesc": "Obtain a copy of your personal data",
+        "rectificationRight": "Right to Rectification:",
+        "rectificationRightDesc": "Correct any inaccurate data",
+        "deletionRight": "Right to Erasure:",
+        "deletionRightDesc": "Request the deletion of your data (subject to legal conditions)",
+        "objectionRight": "Right to Object:",
+        "objectionRightDesc": "Object to the processing of your data",
+        "portabilityRight": "Right to Data Portability:",
+        "portabilityRightDesc": "Obtain your data in a machine-readable format",
+        "exerciseRights": "To exercise any of these rights, please contact us at: {email}"
+      },
+      "dataSecurity": {
+        "title": "7. Data Security",
+        "description": "We implement appropriate technical and organizational security measures to protect your personal data against unauthorized access, loss, or damage:",
+        "encryption": "Data encryption in transit (SSL/TLS)",
+        "secureStorage": "Secure storage in protected databases (Convex)",
+        "accessControl": "Access restricted to authorized personnel only",
+        "securityReviews": "Regular security audits"
+      },
+      "dataRetention": {
+        "title": "8. Data Retention Period",
+        "description": "We retain your personal data for the period necessary to fulfill the stated purposes, or as required by Moroccan law:",
+        "orderData": "Order Data:",
+        "orderDataDesc": "10 years (in accordance with accounting and tax requirements)",
+        "accountData": "Account Data:",
+        "accountDataDesc": "Until deletion is requested or 3 years of inactivity",
+        "technicalData": "Technical Data:",
+        "technicalDataDesc": "13 months"
+      },
+      "cookies": {
+        "title": "9. Cookies",
+        "description": "We use only necessary cookies to improve your experience on our website, subject to your consent:",
+        "essentialCookies": "Essential Cookies:",
+        "essentialCookiesDesc": "For authentication and session management (Clerk)",
+        "functionalCookies": "Functional Cookies:",
+        "functionalCookiesDesc": "To save your preferences (cart, language)",
+        "cookieControl": "You can manage cookies through your browser settings."
+      },
+      "contactUs": {
+        "title": "10. Contact Us",
+        "description": "If you have any questions about our Privacy Policy or wish to exercise your rights, please contact us:"
+      },
+      "complaint": {
+        "title": "11. Your Right to File a Complaint",
+        "description": "If you believe we have not handled your personal data in accordance with the law, you have the right to file a complaint with the National Commission for the Control of Personal Data Protection (CNDP):",
+        "cndpName": "National Commission for the Control of Personal Data Protection (CNDP)",
+        "cndpAddress": "Address: Hay Riad, Rue Dahmani, Rabat, Morocco",
+        "cndpPhone": "Phone:",
+        "cndpPhoneValue": "+212 537 57 71 18",
+        "cndpEmail": "Email: cndp@cndp.ma",
+        "cndpWebsite": "Website:"
+      },
+      "policyUpdates": {
+        "title": "12. Updates to This Policy",
+        "content1": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on our website with an updated \"last updated\" date.",
+        "content2": "We recommend reviewing this page periodically to stay informed about how we protect your data."
+      }
+    }
+  },
+  "terms": {
+    "badge": "Terms & Conditions",
+    "title": "General Terms of Use and Sale",
+    "intro": "Please read these terms carefully before using our website or ordering our products. By using the website, you agree to be bound by these terms.",
+    "lastUpdated": "Last updated: October 4, 2025",
+    "sections": {
+      "generalInfo": {
+        "title": "1. General Information",
+        "description": "The website {website} (hereinafter referred to as \"the Website\") is an online platform owned by {company}, specializing in the design and sale of traditional Moroccan Saharan seating.",
+        "website": "dakhlamajalis.com",
+        "company": "Dakhla Majalis",
+        "tradeName": "Trade Name:",
+        "tradeNameValue": "Dakhla Majalis",
+        "address": "Address:",
+        "addressValue": "Al Wahda District, behind Jarda August 14 - Dakhla, Kingdom of Morocco",
+        "email": "Email:",
+        "emailValue": "contact@dakhlamajalis.com",
+        "phone": "Phone:",
+        "phoneValue": "+212 657-059044",
+        "governingLaw": "These terms are governed by Moroccan law, in particular Law No. 31-08 on Consumer Protection and Law No. 53-05 on the Electronic Exchange of Legal Data."
+      },
+      "services": {
+        "title": "2. Description of Services",
+        "description": "We offer the following services through our website:",
+        "individualProducts": "Individual Product Sales:",
+        "individualProductsDesc": "Seating, cushions, armrests (coudoir), and other traditional pieces",
+        "customDesigns": "Custom Designs:",
+        "customDesignsDesc": "Smart calculation of seating arrangements based on measurements provided by the customer",
+        "consultations": "Consultations:",
+        "consultationsDesc": "Advice on the selection and design of seating arrangements",
+        "importantNote": "Very Important Note:",
+        "importantNoteDesc": "Our website does not process any financial payments. We only collect your orders, and payment and delivery are agreed upon directly between the customer and the Company via phone or email. Payment is made upon delivery or after direct agreement."
+      },
+      "orderProcess": {
+        "title": "3. Order Process",
+        "description": "The order process proceeds as follows:",
+        "step1Title": "Product or Design Selection",
+        "step1Desc": "The customer selects products or uses the smart calculation tool to obtain a custom design",
+        "step2Title": "Order Submission",
+        "step2Desc": "The customer fills out the order form with contact and delivery information",
+        "step3Title": "Direct Communication",
+        "step3Desc": "We contact the customer by phone or email to confirm the order and discuss details and pricing",
+        "step4Title": "Payment Agreement",
+        "step4Desc": "The payment method (cash on delivery, bank transfer, etc.) and estimated delivery date are agreed upon",
+        "step5Title": "Manufacturing and Delivery",
+        "step5Desc": "We manufacture the order according to the agreed specifications and deliver it to the specified address",
+        "bindingNote": "The order becomes binding only after direct communication and agreement on all details between us and the customer."
+      },
+      "pricing": {
+        "title": "4. Pricing",
+        "description": "Prices displayed on the website are indicative and listed in Moroccan dirhams (MAD). Final prices:",
+        "customization": "May vary depending on customization and final dimensions",
+        "finalPrice": "Are determined definitively during direct communication with the customer",
+        "taxInclusive": "Include all applicable taxes in Morocco (VAT 20%)",
+        "priceChange": "We reserve the right to modify prices at any time; however, prices agreed upon with the customer remain unchanged"
+      },
+      "delivery": {
+        "title": "5. Delivery",
+        "description": "Delivery terms:",
+        "deliveryTime": "Delivery Time:",
+        "deliveryTimeDesc": "10 to 15 days from the date the deposit is received",
+        "deliveryArea": "Delivery Area:",
+        "deliveryAreaDesc": "We deliver to all cities in Morocco via the carrier \"Amana\"",
+        "paymentMethod": "Payment Method:",
+        "paymentMethodDesc": "50% deposit via bank transfer, and the remaining 50% paid to the carrier \"Amana\" upon delivery",
+        "deliveryCost": "Delivery Cost:",
+        "deliveryCostDesc": "A nominal fee of 100 MAD, payable upon receipt of the foam",
+        "inspectionOnDelivery": "Inspection Upon Delivery:",
+        "inspectionOnDeliveryDesc": "The customer is advised to inspect the products upon receipt and immediately report any issues"
+      },
+      "returnsAndExchanges": {
+        "title": "6. Right of Return and Exchange",
+        "description": "In accordance with Moroccan Law No. 31-08 on Consumer Protection, the customer is entitled to:",
+        "moneyBackGuarantee": "Money-Back Guarantee:",
+        "moneyBackGuaranteeDesc": "You have 3 days from the date of delivery to obtain a full refund if you are not satisfied with the Saharan seating",
+        "customProducts": "Custom Products:",
+        "customProductsDesc": "The same guarantee applies to all products — 3 days for a full refund",
+        "returnConditions": "Return Conditions:",
+        "returnConditionsDesc": "The product must be in its original condition, unused, with all accessories and packaging",
+        "refund": "Refund:",
+        "refundDesc": "A full refund is issued within 14 days from the date the return is accepted",
+        "returnContact": "For returns or exchanges, please contact us at {email} or {phone} within the specified period."
+      },
+      "warranty": {
+        "title": "7. Warranty",
+        "description": "We offer a warranty on our products against manufacturing defects:",
+        "foamWarranty": "Foam Warranty:",
+        "foamWarrantyDesc": "25 years on Dolidol HD 5 Bassmat foam — number 1 quality",
+        "warrantyCoverage": "Warranty Covers:",
+        "warrantyCoverageDesc": "Manufacturing defects in foam and fabric, stitching and filling issues",
+        "warrantyExclusions": "Warranty Does Not Cover:",
+        "warrantyExclusionsDesc": "Damage resulting from improper use, stains, or tears caused by misuse"
+      },
+      "liability": {
+        "title": "8. Website Liability",
+        "description": "We make every effort to ensure the accuracy of information on our website; however:",
+        "availability": "We do not guarantee that the website will be available at all times without interruption",
+        "colorVariation": "Actual product colors may differ slightly from the images displayed due to screen settings",
+        "indirectDamage": "We are not liable for any indirect damage that may result from the use of the website",
+        "limitedLiability": "Our liability is limited to the value of the order in question"
+      },
+      "intellectualProperty": {
+        "title": "9. Intellectual Property",
+        "description": "All content on the website (images, text, logo, designs) is protected by intellectual property rights under Moroccan law. The following is prohibited:",
+        "noCopy": "Copying or reproducing any content without prior written authorization",
+        "noLogoUse": "Using the logo or brand name without permission",
+        "noCommercialUse": "Any commercial use of the website content"
+      },
+      "disputes": {
+        "title": "10. Governing Law and Disputes",
+        "description": "These terms are governed by Moroccan law. In the event of a dispute:",
+        "amicable": "Amicable Resolution:",
+        "amicableDesc": "We always encourage direct communication to resolve any issue",
+        "mediation": "Mediation:",
+        "mediationDesc": "Mediation may be pursued before any judicial proceedings",
+        "jurisdiction": "Jurisdiction:",
+        "jurisdictionDesc": "In the event that an amicable resolution fails, the Moroccan courts shall have jurisdiction",
+        "consumerProtection": "Consumer Protection:",
+        "consumerProtectionDesc": "Moroccan consumers may benefit from the protection of legally recognized consumer protection associations."
+      },
+      "contactUs": {
+        "title": "11. Contact Us",
+        "description": "For any questions regarding these terms or our services, please contact us:",
+        "availability": "We are available Saturday through Thursday from 9:00 AM to 6:00 PM (Morocco time)"
+      },
+      "termsModification": {
+        "title": "12. Modification of Terms",
+        "content1": "We reserve the right to modify these terms at any time. Modifications take effect immediately upon publication on the website.",
+        "content2": "Orders confirmed prior to any modification remain subject to the terms in effect at the time of the order.",
+        "content3": "We recommend reviewing this page regularly to stay informed of any updates."
+      }
+    }
+  },
+  "blog": {
+    "badge": "Dakhla Majalis Blog",
+    "title": "Explore the World of",
+    "titleHighlight": "Saharan Salons",
+    "subtitle": "Articles, tips, and expert guides to help you choose and design the perfect salon",
+    "search": {
+      "placeholder": "Search for an article..."
+    },
+    "featured": "Featured Articles",
+    "readFullArticle": "Read Full Article",
+    "allCategory": "All",
+    "allArticles": "All Articles",
+    "readMore": "Read More",
+    "readTime": "{minutes} min read",
+    "empty": "No Results Found",
+    "emptyDescription": "Try different keywords or select a different category",
+    "backToBlog": "Back to Blog",
+    "gallery": "Photo Gallery",
+    "imageAlt": "Image {number}"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Sorry, we couldn't find the page you're looking for",
+    "backToHome": "Back to Home"
+  },
+  "metadata": {
+    "siteName": "Dakhla Majalis",
+    "home": {
+      "title": "Dakhla Majalis | First Brand Specialized in Saharan Salons from Southern Morocco",
+      "description": "We craft traditional Saharan floor seating and camel hair tents from the heart of Dakhla. Délidol foam with 25-year warranty and premium cotton fabric. Delivery to all Moroccan cities in 10-15 days."
+    },
+    "products": {
+      "title": "Our Products | Dakhla Majalis",
+      "description": "Discover our collection of authentic Saharan salons, floor seating, and traditional tents of exceptional quality."
+    },
+    "contact": {
+      "title": "Contact Us | Dakhla Majalis",
+      "description": "Contact us to order your Saharan salon or for any questions about our products. We're here to help."
+    },
+    "blog": {
+      "title": "Blog | Dakhla Majalis",
+      "description": "Specialized articles and tips about Saharan salons and space design."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Dakhla Majalis"
+    },
+    "terms": {
+      "title": "Terms of Use | Dakhla Majalis"
+    },
+    "checkout": {
+      "title": "Checkout | Dakhla Majalis"
+    },
+    "thankYou": {
+      "title": "Thank You | Dakhla Majalis"
+    },
+    "categories": {
+      "sets": {
+        "title": "Custom Majalis | Dakhla Majalis",
+        "description": "Saharan salons tailored to your space. Custom design with the finest fabrics and Moroccan foam. Handmade by Dakhla artisans."
+      },
+      "ready": {
+        "title": "Ready-Made Majalis | Dakhla Majalis",
+        "description": "Ready-to-deliver majalis. A diverse collection of Saharan seating in various sizes and colors. Handmade from Dakhla."
+      },
+      "outdoor": {
+        "title": "Outdoor Seating | Dakhla Majalis",
+        "description": "Outdoor seating perfect for trips and camping. Durable and comfortable, made from materials built for outdoor use."
+      },
+      "tents": {
+        "title": "Camel Hair Tents | Dakhla Majalis",
+        "description": "Authentic traditional Moroccan camel hair tents. Handmade with natural materials from the Dakhla desert."
+      },
+      "accessories": {
+        "title": "Accessories & Decor | Dakhla Majalis",
+        "description": "Authentic Saharan home accessories and decor. Cushions, rugs, and decor pieces that add a heritage touch to your home."
+      },
+      "fallbackTitle": "{category} | Dakhla Majalis",
+      "fallbackDescription": "Browse {category} products from Dakhla Majalis. Handmade by Moroccan artisans."
+    },
+    "subcategories": {
+      "fallbackTitle": "{subcategory} - {category} | Dakhla Majalis",
+      "fallbackDescription": "Browse {subcategory} products in {category} from Dakhla Majalis."
+    }
+  },
+  "aboutUs": {
+    "badge": "About Us",
+    "title": "Dakhla Majalis",
+    "subtitle": "The first Moroccan brand specialized in Saharan floor majlis",
+    "description": "Dakhla Majalis is the first Moroccan brand specialized in the production of traditional Saharan floor majlis and goat-hair tents, inspired by the rich heritage of the Moroccan Sahara.",
+    "products": "We design and manufacture a range of products including Saharan majlis, outdoor and excursion majlis, traditional tents, مخزانية tents, tea majlis, poufs, and home accessories and decorations.",
+    "quality": "Our majlis are made using premium materials, including high-quality woven cotton fabric and Dolidol HD 5 bassmat foam, with a 25-year warranty on the foam through our partnership with Dolidol.",
+    "delivery": "We deliver to all cities across Morocco, with a production and delivery time of 10 to 20 days.",
+    "goal": "Our goal is to offer authentic, elegant, and durable Saharan majlis that bring the spirit of the Moroccan Sahara into any space.",
+    "location": "Address: Al Wahda District, behind the 14 August Garden – Dakhla, Morocco.",
+    "videoTitle": "Watch our interview on Med Radio"
+  },
+  "shipping": {
+    "badge": "Delivery",
+    "title": "Delivery Method",
+    "intro": "Ensuring optimal transport quality and product protection",
+    "methodTitle": "Delivery Method for Salons (Majlis)",
+    "methodDesc": "To ensure optimal transport quality and product protection, the delivery of Sahrawi salons is organized as follows:",
+    "foam": "The foam of the salon is delivered directly by our partner Dolidol",
+    "fabric": "The fabric and covers are shipped via Amana or Ozone Express delivery companies",
+    "benefit1": "Better product protection during transport",
+    "benefit2": "More efficient and secure delivery",
+    "timesTitle": "Delivery Times",
+    "timesDesc": "Delivery times may vary depending on the type of product:",
+    "inStock": "Products in stock",
+    "inStockTime": "Usually delivered within 2 to 7 business days depending on the city",
+    "madeToOrder": "Made-to-order products",
+    "madeToOrderDesc": "Such as customized Sahrawi salons or traditional tents",
+    "madeToOrderTime": "Manufacturing and delivery time usually ranges from 10 to 20 days"
+  },
+  "cgv": {
+    "badge": "Terms & Conditions",
+    "title": "Terms and Conditions of Sale",
+    "intro": "These Terms and Conditions of Sale govern the relationship between Dakhla Majalis and any customer placing an order through our website.",
+    "s1Title": "Purpose",
+    "s1Desc": "The website's main purpose is to showcase our products and allow customers to submit order requests for:",
+    "s1Item1": "Traditional Sahrawi Majalis",
+    "s1Item2": "Salons for outings and events",
+    "s1Item3": "Traditional Sahrawi tents",
+    "s1Item4": "Tables and decorative accessories",
+    "s1Note": "Any order placed on the site implies acceptance of these terms.",
+    "s2Title": "Order Process",
+    "s2Desc": "The Dakhla Majalis website allows customers to submit order requests. Upon receiving an order request, our team contacts the customer to confirm the details. The order is validated only after a 50% deposit is paid and subject to product availability or manufacturing feasibility.",
+    "s3Title": "Payment Terms",
+    "s3Desc": "To confirm an order, the payment terms are as follows:",
+    "s3Item1": "50% of the total amount is paid in advance via bank transfer to validate the order and initiate product preparation or manufacturing.",
+    "s3Item2": "The remaining 50% is paid upon delivery to the delivery company.",
+    "s3Note": "An order is considered confirmed only after the deposit has been received.",
+    "s4Title": "Product Availability",
+    "s4Desc": "Some of our products are handcrafted or made-to-order, and availability may vary. Final order confirmation depends on:",
+    "s4Item1": "Product availability in stock",
+    "s4Item2": "Or the time required for manufacturing",
+    "s4Note": "If a product is unavailable, the customer will be informed as soon as possible.",
+    "s5Title": "Order Modification or Cancellation",
+    "s5Desc": "Any modification or cancellation must be reported as soon as possible. If the product has already been manufactured, some modifications or cancellations may no longer be possible.",
+    "s6Title": "Protection Against Fraudulent Orders",
+    "s6Desc": "To prevent non-serious or fraudulent orders, an order is considered valid only after:",
+    "s6Item1": "Confirmation of customer information (name, phone number, address)",
+    "s6Item2": "Validation of order details with the customer",
+    "s6Item3": "Receipt of the 50% deposit",
+    "s6Note": "Dakhla Majalis reserves the right to cancel or refuse any order in case of incomplete or incorrect information or if the required deposit is not received."
+  },
+  "coupDeCoeur": {
+    "badge": "Highlights",
+    "title": "Special Moments",
+    "subtitle": "Discover the experiences and projects that define who we are — from collaborations with creators to showcasing our craft on the national stage.",
+    "story1Title": "A Day in Dakhla with Bohemian Kitchen",
+    "story1Desc": "Discovering Saharan cuisine",
+    "story2Title": "Our Expertise at SIAM Meknes 2025",
+    "story2Desc": "Design of the Dakhla Oued Eddahab regional stand",
+    "story3Title": "Our Adventure on Dragon Island",
+    "story3Desc": "Mobile Majlis at the summit",
+    "viewAlbum": "View Album"
+  },
+  "returnPolicy": {
+    "badge": "Return Policy",
+    "title": "Our Return Policy",
+    "intro": "At Dakhla Majalis, customer satisfaction is our top priority.",
+    "mainPolicy": "We offer our customers the option to return any purchased product if it does not suit them, within 3 days of the delivery date, with a full refund of the amount paid in complete transparency, provided the return conditions are met.",
+    "conditionsTitle": "Return Conditions",
+    "condition1": "The product must be in its original condition, without damage or signs of use.",
+    "condition2": "The return request must be reported within a maximum of 3 days after receiving the product.",
+    "condition3": "Return shipping costs are the responsibility of the customer, except in cases of manufacturing defects.",
+    "support": "Our team remains available to answer your questions and assist you throughout your purchase.",
+    "customerService": "Customer Service",
+    "phone": "+212 657059044"
+  }
+}

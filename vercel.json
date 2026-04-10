@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "discover-marrakech-city",
+  "functions": {
+    "src/pages/api/**/*.js": {
+      "maxDuration": 30
+    },
+    "api/optimize.py": {
+      "maxDuration": 300
+    }
+  }
+}

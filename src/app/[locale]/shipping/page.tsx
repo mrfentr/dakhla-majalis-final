@@ -1,0 +1,112 @@
+'use client';
+
+import { LandingNavbar, LandingFooter } from '@/components/landing';
+import { Truck, Clock, Package, Shield, CheckCircle2 } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
+
+export default function ShippingPage() {
+  const t = useTranslations('shipping');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  return (
+    <div className="min-h-screen bg-white overflow-x-hidden" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
+      <LandingNavbar />
+
+      {/* Hero Section */}
+      <section className="relative pt-24 pb-10 md:pb-16 bg-gradient-to-b from-neutral-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#BD7C48]/10 rounded-full mb-4 md:mb-6">
+            <Package className="w-4 h-4 text-[#BD7C48] flex-shrink-0" />
+            <span className="text-sm font-bold text-[#BD7C48]">{t('badge')}</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 mb-4 md:mb-6">
+            {t('title')}
+          </h1>
+          <p className="text-base md:text-lg text-neutral-600 max-w-2xl mx-auto">
+            {t('intro')}
+          </p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-10 md:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8 md:space-y-12">
+
+            {/* Delivery Method Section */}
+            <div className="bg-white border-2 border-neutral-100 rounded-2xl p-5 sm:p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#BD7C48]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Truck className="w-5 h-5 md:w-6 md:h-6 text-[#BD7C48]" />
+                </div>
+                <h2 className="text-xl md:text-2xl font-black text-neutral-900">{t('methodTitle')}</h2>
+              </div>
+              <div className="space-y-4 text-neutral-700 leading-relaxed text-sm md:text-base">
+                <p>{t('methodDesc')}</p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#BD7C48] mt-2 flex-shrink-0"></div>
+                    <p className="min-w-0">{t('foam')}</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#BD7C48] mt-2 flex-shrink-0"></div>
+                    <p className="min-w-0">{t('fabric')}</p>
+                  </div>
+                </div>
+                <div className="mt-6 bg-neutral-50 rounded-xl p-4 md:p-6">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#BD7C48] mt-0.5 flex-shrink-0" />
+                      <p className="min-w-0">{t('benefit1')}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#BD7C48] mt-0.5 flex-shrink-0" />
+                      <p className="min-w-0">{t('benefit2')}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Delivery Times Section */}
+            <div className="bg-white border-2 border-neutral-100 rounded-2xl p-5 sm:p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#BD7C48]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 text-[#BD7C48]" />
+                </div>
+                <h2 className="text-xl md:text-2xl font-black text-neutral-900">{t('timesTitle')}</h2>
+              </div>
+              <div className="space-y-4 text-neutral-700 leading-relaxed text-sm md:text-base">
+                <p>{t('timesDesc')}</p>
+                <div className="space-y-4">
+                  <div className="bg-neutral-50 rounded-xl p-4 md:p-5 flex items-start gap-3 md:gap-4">
+                    <div className="w-9 h-9 md:w-10 md:h-10 bg-[#BD7C48]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Package className="w-4 h-4 md:w-5 md:h-5 text-[#BD7C48]" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-neutral-900 mb-1">{t('inStock')}</h3>
+                      <p>{t('inStockTime')}</p>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 rounded-xl p-4 md:p-5 flex items-start gap-3 md:gap-4">
+                    <div className="w-9 h-9 md:w-10 md:h-10 bg-[#BD7C48]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-4 h-4 md:w-5 md:h-5 text-[#BD7C48]" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-neutral-900 mb-1">{t('madeToOrder')}</h3>
+                      <p className="text-sm text-neutral-500 mb-1">{t('madeToOrderDesc')}</p>
+                      <p>{t('madeToOrderTime')}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <LandingFooter />
+    </div>
+  );
+}
