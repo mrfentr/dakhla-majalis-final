@@ -312,7 +312,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
           </Link>
           {isRTL ? <ChevronLeft size={14} className="text-neutral-400 shrink-0" /> : <ChevronRight size={14} className="text-neutral-400 shrink-0" />}
           <Link
-            href="/#products-section"
+            href="/products"
             className="text-neutral-500 hover:text-[#BD7C48] transition-colors shrink-0"
           >
             {t('breadcrumb.products')}

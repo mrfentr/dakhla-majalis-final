@@ -39,8 +39,18 @@ export function LandingFooter() {
   const locale = useLocale();
   const isArabic = locale === 'ar';
 
+  const shopLinks = [
+    { label: t('footer.allProducts'), href: '/products' },
+    { label: t('footer.catSets'), href: '/products/sets' },
+    { label: t('footer.catReady'), href: '/products/ready' },
+    { label: t('footer.catTents'), href: '/products/tents' },
+    { label: t('footer.catOutdoor'), href: '/products/outdoor' },
+    { label: t('footer.catAccessories'), href: '/products/accessories' },
+    { label: t('footer.blogLink'), href: '/blog' },
+  ];
+
   const quickLinks = [
-    { label: t('nav.products'), href: '#products' },
+    { label: t('nav.products'), href: '/products' },
     { label: t('nav.howWeWork'), href: '#how-it-works' },
     { label: t('footer.gallery'), href: '#gallery' },
     { label: t('nav.about'), href: '/about' },
@@ -172,6 +182,54 @@ export function LandingFooter() {
             flexWrap: isTablet ? 'wrap' : 'nowrap',
           }}
         >
+          {/* Shop / Categories — sitewide internal links to all category pages */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: isMobile ? 4 : 8,
+            }}
+          >
+            <span
+              style={{
+                color: '#FFFFFF',
+                fontFamily: isArabic ? theme.fonts.arabicTitle : theme.fonts.latinTitle,
+                fontSize: sectionTitleSize,
+                fontWeight: 'bold',
+                marginBottom: isMobile ? 4 : 8,
+              }}
+            >
+              {t('footer.shopHeading')}
+            </span>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr 1fr' : isTablet ? '1fr 1fr' : '1fr',
+                gap: isMobile ? '2px 16px' : isTablet ? '4px 24px' : '4px',
+              }}
+            >
+              {shopLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  style={{
+                    color: theme.colors.footerText,
+                    fontFamily: isArabic ? theme.fonts.arabic : theme.fonts.latin,
+                    fontSize: bodyFontSize,
+                    textDecoration: 'none',
+                    minHeight: linkMinHeight,
+                    display: 'flex',
+                    alignItems: 'center',
+                    transition: 'color 0.2s ease',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Quick Links */}
           <div
             style={{

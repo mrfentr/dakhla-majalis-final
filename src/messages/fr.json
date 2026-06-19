@@ -53,7 +53,15 @@
       "shipping": "Livraison",
       "cgv": "Conditions de Vente",
       "returnPolicy": "Politique de retour",
-      "informations": "Informations"
+      "informations": "Informations",
+      "shopHeading": "Nos Salons",
+      "allProducts": "Tous les salons marocains",
+      "catSets": "Salon Marocain sur Mesure",
+      "catReady": "Salon Marocain Prêt à Livrer",
+      "catTents": "Tentes Marocaines",
+      "catOutdoor": "Salon d'Extérieur",
+      "catAccessories": "Accessoires & Déco",
+      "blogLink": "Blog"
     }
   },
   "home": {

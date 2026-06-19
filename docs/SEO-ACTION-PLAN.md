@@ -158,6 +158,46 @@ Verified: `npx tsc --noEmit` → **0 errors** (build is safe to deploy).
 
 ---
 
+## 7c. INTERNAL LINKING (✅ DONE 2026-06-19)
+
+Full page inventory is in `docs/SITE-PAGES.md` (65 routes × 3 locales ≈ 195 URLs).
+
+**What existed already (good):** navbar category dropdown → category pages; product
+pages have breadcrumbs + a "related products" section; homepage links category & product cards.
+
+**What I added — the big gap:** the **footer** (on all ~195 pages) linked only to dead
+`#products` anchors. Added a sitewide **"Shop" column** with keyword-rich anchor text
+linking to every category + products + blog:
+- "Tous les salons marocains" → /products
+- "Salon Marocain sur Mesure" → /products/sets
+- "Salon Marocain Prêt à Livrer" → /products/ready
+- "Tentes Marocaines" → /products/tents
+- "Salon d'Extérieur" → /products/outdoor
+- "Accessoires & Déco" → /products/accessories
+- "Blog" → /blog
+
+(localized for ar/fr/en). Also fixed the footer "products" link from `#products` →
+`/products`. Now every page passes link equity to all category hubs with keyword anchors.
+Verified: tsc 0 errors, JSON valid.
+
+**Why "right amount" not "maximum":** more links ≠ better. The footer hub + navbar
+dropdown + breadcrumbs + related-products is the correct structure — every important
+page is reachable in ≤3 clicks with descriptive anchors, without link spam.
+
+---
+
+## 7d. ⚠️ NEXT PRIORITY — duplicate slugs (real duplicate-content risk)
+
+From the sitemap, these are LIVE problems (see `docs/SITE-PAGES.md`):
+- Case-variant duplicate product slugs: `majlis`/`Majlis`, `pouf-traditionnel`/`Pouf-traditionnel`, `salon-sahraoui`/`Salon-sahraoui` → 2 URLs, same content.
+- A subcategory slug with a literal space: `/products/ready/salon sahraoui`.
+- Several products appear multiple times in the sitemap → duplicate slugs in Convex DB.
+
+Fix = normalize slugs in Convex to unique, lowercase, hyphenated; add 301 redirects for
+the old casing. This needs DB edits — tell me to proceed and I'll script it safely.
+
+---
+
 ## 8. Minor cleanup (optional, not blocking)
 
 - 13 "404" + 1 "403": dead URLs from the old site. Google drops them automatically.

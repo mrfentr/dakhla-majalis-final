@@ -18,6 +18,7 @@ import {
 import { useGetActiveFabricVariants } from '@/hooks/useConvex';
 import { usePreloadedQuery, type Preloaded } from 'convex/react';
 import { api } from '@convex/_generated/api';
+import { Link } from '@/i18n/navigation';
 import { useCart } from '@/contexts/CartContext';
 import { CategoryCard } from '@/components/shared/CategoryCard';
 import { ProductImageCarousel } from '@/components/ProductImageCarousel';
@@ -296,13 +297,13 @@ export default function CategorySubcategoriesContent({ categorySlug, preloadedPr
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-neutral-400 mb-4 sm:mb-6">
-            <button
-              onClick={() => router.push('/products')}
+            <Link
+              href="/products"
               className="hover:text-[#B85C38] transition-colors"
               style={{ fontFamily: "'Noto Naskh Arabic', serif" }}
             >
               {t('breadcrumb.products')}
-            </button>
+            </Link>
             <ChevronRight size={14} className={isRTL ? 'rotate-180' : ''} />
             <span className="text-[#1A1A1A] font-semibold">{categoryName}</span>
           </nav>

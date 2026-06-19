@@ -53,7 +53,15 @@
       "shipping": "Shipping",
       "cgv": "Terms of Sale",
       "returnPolicy": "Return Policy",
-      "informations": "Information"
+      "informations": "Information",
+      "shopHeading": "Shop",
+      "allProducts": "All Moroccan Salons",
+      "catSets": "Custom Moroccan Salon",
+      "catReady": "Ready-to-Ship Salon",
+      "catTents": "Moroccan Tents",
+      "catOutdoor": "Outdoor Salon",
+      "catAccessories": "Accessories & Decor",
+      "blogLink": "Blog"
     }
   },
   "home": {

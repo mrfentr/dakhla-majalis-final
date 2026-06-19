@@ -53,7 +53,15 @@
       "shipping": "التوصيل",
       "cgv": "شروط البيع",
       "returnPolicy": "سياسة الإرجاع",
-      "informations": "معلومات"
+      "informations": "معلومات",
+      "shopHeading": "صالوناتنا",
+      "allProducts": "كل الصالونات والمجالس",
+      "catSets": "صالون مغربي حسب الطلب",
+      "catReady": "مجالس جاهزة للتوصيل",
+      "catTents": "خيام مغربية",
+      "catOutdoor": "مجالس للخارج والرحلات",
+      "catAccessories": "إكسسوارات وديكور",
+      "blogLink": "المدونة"
     }
   },
   "home": {
