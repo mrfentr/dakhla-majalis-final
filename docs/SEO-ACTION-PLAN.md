@@ -184,6 +184,16 @@ Verified: tsc 0 errors, JSON valid.
 dropdown + breadcrumbs + related-products is the correct structure — every important
 page is reachable in ≤3 clicks with descriptive anchors, without link spam.
 
+**Breadcrumb fixes (round 2, ✅ DONE):**
+- Product breadcrumb "Products" pointed to `/#products-section` (homepage anchor) → now `/products` (real crawlable page).
+- Category breadcrumb used a `<button onClick={router.push}>` — **not crawlable by Google** → converted to a real `<Link href="/products">`.
+
+**Blog list page (✅ DONE — SEO need):** `/blog` was `'use client'` with NO metadata
+(no title/canonical/hreflang) and client-only post links. Refactored to the server-wrapper
+pattern: new server `page.tsx` with `generateMetadata` (title/desc/canonical/hreflang) +
+`preloadQuery` so posts render in the HTML; moved the UI to `BlogPageContent.tsx` using
+`usePreloadedQuery`. Now /blog is crawlable with proper meta. (tsc 0 errors.)
+
 ---
 
 ## 7d. ⚠️ NEXT PRIORITY — duplicate slugs (real duplicate-content risk)
