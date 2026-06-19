@@ -139,6 +139,25 @@ It's NOT Convex vs hardcoded. Verified: this site's Convex content **is** server
 
 ---
 
+## 7b. SPEED FIX — products now render server-side (✅ DONE 2026-06-19)
+
+**Problem:** products loaded client-side (Convex `useQuery`) → users saw a "جاري تحميل
+المنتجات…" spinner, and Google saw a loading message instead of products. Classic
+hydrate→fetch→render waterfall.
+
+**Fix:** switched to Convex `preloadQuery` (server) + `usePreloadedQuery` (client) so
+products + categories are fetched on the server and ship in the initial HTML — no
+spinner, faster LCP, fully crawlable. Applied to **every** product surface:
+- Homepage (`LandingProducts`)
+- `/products` page
+- Category pages (`/products/[category]`)
+- Subcategory pages (`/products/[category]/[subcategory]`)
+- Product detail pages (`/product/[slug]`)
+
+Verified: `npx tsc --noEmit` → **0 errors** (build is safe to deploy).
+
+---
+
 ## 8. Minor cleanup (optional, not blocking)
 
 - 13 "404" + 1 "403": dead URLs from the old site. Google drops them automatically.

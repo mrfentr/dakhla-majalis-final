@@ -1,5 +1,7 @@
 import {setRequestLocale} from 'next-intl/server';
 import dynamic from 'next/dynamic';
+import { preloadQuery } from 'convex/nextjs';
+import { api } from '@convex/_generated/api';
 import {
   LandingNavbar,
   LandingHero,
@@ -57,6 +59,13 @@ export default async function LocalePage({params}: Props) {
   const {locale} = await params;
   setRequestLocale(locale);
 
+  // Preload products + categories on the server so they render in the initial
+  // HTML (no client-side loading spinner, faster LCP, crawlable by Google).
+  const [preloadedProducts, preloadedCategories] = await Promise.all([
+    preloadQuery(api.products.getProducts, {}),
+    preloadQuery(api.categories.getCategories, { activeOnly: true, topLevelOnly: true }),
+  ]);
+
   return (
     <div
       className="min-h-screen w-full max-w-full"
@@ -68,7 +77,7 @@ export default async function LocalePage({params}: Props) {
     >
       <LandingNavbar />
       <LandingHero />
-      <LandingProducts />
+      <LandingProducts preloadedProducts={preloadedProducts} preloadedCategories={preloadedCategories} />
       <LandingCoupDeCoeur />
       <LandingHowItWorks />
       <LandingGallery />

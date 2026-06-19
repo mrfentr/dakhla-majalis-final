@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ConvexHttpClient } from 'convex/browser';
+import { preloadQuery } from 'convex/nextjs';
 import { api } from '@convex/_generated/api';
 import { ProductDetails } from '@/components/product/ProductDetails';
 
@@ -122,12 +123,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     }
   } catch {}
 
+  const preloadedProduct = await preloadQuery(api.products.getProductBySlug, { slug });
+
   return (
     <>
       {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
       {breadcrumbLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />}
       {pageHeading && <h1 className="sr-only">{pageHeading}</h1>}
-      <ProductDetails slug={slug} />
+      <ProductDetails slug={slug} preloadedProduct={preloadedProduct} />
     </>
   );
 }

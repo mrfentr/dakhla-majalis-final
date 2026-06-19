@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from '@/i18n/navigation';
 import { theme } from './theme';
-import { useGetProducts, useGetCategories } from '@/hooks/useConvex';
+import { usePreloadedQuery, type Preloaded } from 'convex/react';
+import { api } from '@convex/_generated/api';
 import { ProductImageCarousel } from '@/components/ProductImageCarousel';
 import { CategoryCard } from '@/components/shared/CategoryCard';
 import {useTranslations, useLocale} from 'next-intl';
@@ -63,7 +64,12 @@ function useBreakpoint(): Breakpoint {
   return breakpoint;
 }
 
-export function LandingProducts() {
+interface LandingProductsProps {
+  preloadedProducts: Preloaded<typeof api.products.getProducts>;
+  preloadedCategories: Preloaded<typeof api.categories.getCategories>;
+}
+
+export function LandingProducts({ preloadedProducts, preloadedCategories }: LandingProductsProps) {
   const t = useTranslations('home');
   const tc = useTranslations('common');
   const locale = useLocale();
@@ -71,8 +77,8 @@ export function LandingProducts() {
   const router = useRouter();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [scrolledCategories, setScrolledCategories] = useState<Set<string>>(new Set());
-  const dbProducts = useGetProducts();
-  const dbCategories = useGetCategories({ activeOnly: true, topLevelOnly: true }); // only active top-level categories
+  const dbProducts = usePreloadedQuery(preloadedProducts);
+  const dbCategories = usePreloadedQuery(preloadedCategories);
   const bp = useBreakpoint();
 
 

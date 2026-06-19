@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { preloadQuery } from 'convex/nextjs';
+import { api } from '@convex/_generated/api';
 import { LandingNavbar, LandingFooter } from '@/components/landing';
 import { LandingProducts } from '@/components/landing/LandingProducts';
 
@@ -35,11 +37,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ProductsPage() {
   const t = await getTranslations('metadata');
   const heading = t('products.title').replace(' | Dakhla Majalis', '');
+  const [preloadedProducts, preloadedCategories] = await Promise.all([
+    preloadQuery(api.products.getProducts, {}),
+    preloadQuery(api.categories.getCategories, { activeOnly: true, topLevelOnly: true }),
+  ]);
   return (
     <div className="min-h-screen bg-[#FDFBF7]">
       <LandingNavbar />
       <h1 className="sr-only">{heading}</h1>
-      <LandingProducts />
+      <LandingProducts preloadedProducts={preloadedProducts} preloadedCategories={preloadedCategories} />
       <LandingFooter />
     </div>
   );

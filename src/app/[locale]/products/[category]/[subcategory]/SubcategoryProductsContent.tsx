@@ -15,7 +15,9 @@ import {
   ChevronRight,
   ChevronLeft,
 } from 'lucide-react';
-import { useGetProducts, useGetCategories, useGetActiveFabricVariants } from '@/hooks/useConvex';
+import { useGetActiveFabricVariants } from '@/hooks/useConvex';
+import { usePreloadedQuery, type Preloaded } from 'convex/react';
+import { api } from '@convex/_generated/api';
 import { useCart } from '@/contexts/CartContext';
 import { ProductImageCarousel } from '@/components/ProductImageCarousel';
 import { useTranslations, useLocale } from 'next-intl';
@@ -46,9 +48,11 @@ interface Product {
 interface Props {
   categorySlug: string;
   subcategorySlug: string;
+  preloadedProducts: Preloaded<typeof api.products.getProducts>;
+  preloadedCategories: Preloaded<typeof api.categories.getCategories>;
 }
 
-export default function SubcategoryProductsContent({ categorySlug, subcategorySlug }: Props) {
+export default function SubcategoryProductsContent({ categorySlug, subcategorySlug, preloadedProducts, preloadedCategories }: Props) {
   const t = useTranslations('products');
   const locale = useLocale();
   const isRTL = locale === 'ar';
@@ -59,8 +63,8 @@ export default function SubcategoryProductsContent({ categorySlug, subcategorySl
   const [addedToCart, setAddedToCart] = useState<string | null>(null);
   const { addItem } = useCart();
 
-  const allProducts = useGetProducts();
-  const dbCategories = useGetCategories({ activeOnly: true });
+  const allProducts = usePreloadedQuery(preloadedProducts);
+  const dbCategories = usePreloadedQuery(preloadedCategories);
   const activeFabricVariants = useGetActiveFabricVariants();
 
   // Filter products client-side by category + subcategory (more reliable than index query)

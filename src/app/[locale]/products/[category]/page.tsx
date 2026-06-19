@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
+import { preloadQuery } from 'convex/nextjs';
+import { api } from '@convex/_generated/api';
 import CategorySubcategoriesContent from './CategorySubcategoriesContent';
 
 // SSR on each request - needed because CategorySubcategoriesContent uses Convex
@@ -57,10 +59,18 @@ export default async function CategoryProductsPage({ params }: { params: Promise
     ? t(`categories.${category}.title` as any)
     : t('categories.fallbackTitle', { category })
   ).replace(' | Dakhla Majalis', '');
+  const [preloadedProducts, preloadedCategories] = await Promise.all([
+    preloadQuery(api.products.getProducts, {}),
+    preloadQuery(api.categories.getCategories, { activeOnly: true }),
+  ]);
   return (
     <Suspense>
       <h1 className="sr-only">{heading}</h1>
-      <CategorySubcategoriesContent categorySlug={decodeURIComponent(category)} />
+      <CategorySubcategoriesContent
+        categorySlug={decodeURIComponent(category)}
+        preloadedProducts={preloadedProducts}
+        preloadedCategories={preloadedCategories}
+      />
     </Suspense>
   );
 }

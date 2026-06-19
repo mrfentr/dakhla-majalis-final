@@ -15,7 +15,9 @@ import {
   Search,
   ChevronDown,
 } from 'lucide-react';
-import { useGetCategories, useGetProducts, useGetActiveFabricVariants } from '@/hooks/useConvex';
+import { useGetActiveFabricVariants } from '@/hooks/useConvex';
+import { usePreloadedQuery, type Preloaded } from 'convex/react';
+import { api } from '@convex/_generated/api';
 import { useCart } from '@/contexts/CartContext';
 import { CategoryCard } from '@/components/shared/CategoryCard';
 import { ProductImageCarousel } from '@/components/ProductImageCarousel';
@@ -47,9 +49,11 @@ interface Product {
 
 interface Props {
   categorySlug: string;
+  preloadedProducts: Preloaded<typeof api.products.getProducts>;
+  preloadedCategories: Preloaded<typeof api.categories.getCategories>;
 }
 
-export default function CategorySubcategoriesContent({ categorySlug }: Props) {
+export default function CategorySubcategoriesContent({ categorySlug, preloadedProducts, preloadedCategories }: Props) {
   const t = useTranslations('products');
   const locale = useLocale();
   const isRTL = locale === 'ar';
@@ -65,8 +69,8 @@ export default function CategorySubcategoriesContent({ categorySlug }: Props) {
     }
   }, [searchParams, categorySlug, locale, nextRouter]);
 
-  const dbCategories = useGetCategories({ activeOnly: true });
-  const dbProducts = useGetProducts();
+  const dbCategories = usePreloadedQuery(preloadedCategories);
+  const dbProducts = usePreloadedQuery(preloadedProducts);
   const activeFabricVariants = useGetActiveFabricVariants();
   const { addItem } = useCart();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);

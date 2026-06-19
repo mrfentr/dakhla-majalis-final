@@ -26,16 +26,17 @@ import { useCart } from '@/contexts/CartContext';
 import { LandingNavbar, LandingFooter } from '@/components/landing';
 import { ProductImageCarousel } from '@/components/ProductImageCarousel';
 import {
-  useGetProductBySlug,
   useGetApprovedProductReviews,
   useCreateReview,
   useGetProducts,
 } from '@/hooks/useConvex';
+import { usePreloadedQuery, type Preloaded } from 'convex/react';
+import { api } from '@convex/_generated/api';
 import toast from 'react-hot-toast';
 import {useTranslations, useLocale} from 'next-intl';
 import { getLocalizedField, getVariantName } from '@/lib/utils';
 
-export function ProductDetails({ slug }: { slug: string }) {
+export function ProductDetails({ slug, preloadedProduct }: { slug: string; preloadedProduct: Preloaded<typeof api.products.getProductBySlug> }) {
   const t = useTranslations('productDetail');
   const tProducts = useTranslations('products');
   const locale = useLocale();
@@ -44,7 +45,7 @@ export function ProductDetails({ slug }: { slug: string }) {
   const { addItem } = useCart();
 
   // Convex hooks
-  const product = useGetProductBySlug(slug);
+  const product = usePreloadedQuery(preloadedProduct);
   const reviews = useGetApprovedProductReviews(product?._id);
   const createReview = useCreateReview();
   const allProducts = useGetProducts({ status: 'active' });

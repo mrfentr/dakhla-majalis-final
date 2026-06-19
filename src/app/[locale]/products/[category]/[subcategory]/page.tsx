@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
+import { preloadQuery } from 'convex/nextjs';
+import { api } from '@convex/_generated/api';
 import SubcategoryProductsContent from './SubcategoryProductsContent';
 
 interface Props {
@@ -30,11 +32,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SubcategoryProductsPage({ params }: Props) {
   const { category, subcategory } = await params;
+  const [preloadedProducts, preloadedCategories] = await Promise.all([
+    preloadQuery(api.products.getProducts, {}),
+    preloadQuery(api.categories.getCategories, { activeOnly: true }),
+  ]);
   return (
     <Suspense>
       <SubcategoryProductsContent
         categorySlug={decodeURIComponent(category)}
         subcategorySlug={decodeURIComponent(subcategory)}
+        preloadedProducts={preloadedProducts}
+        preloadedCategories={preloadedCategories}
       />
     </Suspense>
   );
