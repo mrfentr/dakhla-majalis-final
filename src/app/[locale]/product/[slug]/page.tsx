@@ -75,11 +75,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   let jsonLd = null;
   let breadcrumbLd = null;
+  let pageHeading = '';
 
   try {
     const product = await convex.query(api.products.getProductBySlug, { slug });
     if (product) {
       const title = getLocalizedField(product.title, locale);
+      pageHeading = title;
       const description = getLocalizedField(product.description, locale);
       jsonLd = {
         '@context': 'https://schema.org',
@@ -124,6 +126,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <>
       {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
       {breadcrumbLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />}
+      {pageHeading && <h1 className="sr-only">{pageHeading}</h1>}
       <ProductDetails slug={slug} />
     </>
   );

@@ -59,7 +59,7 @@ export function LandingHero() {
             margin: 0,
           }}
         >
-          {t('hero.titleLine1')}
+          {t('hero.titleLine1')}{' '}
           <br />
           {t('hero.titleLine2')}
         </h1>

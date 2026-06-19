@@ -32,10 +32,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const t = await getTranslations('metadata');
+  const heading = t('products.title').replace(' | Dakhla Majalis', '');
   return (
     <div className="min-h-screen bg-[#FDFBF7]">
       <LandingNavbar />
+      <h1 className="sr-only">{heading}</h1>
       <LandingProducts />
       <LandingFooter />
     </div>

@@ -970,12 +970,12 @@
   "metadata": {
     "siteName": "Dakhla Majalis",
     "home": {
-      "title": "Dakhla Majalis | Première marque spécialisée en salons sahariens des provinces du Sud",
-      "description": "Nous fabriquons des salons sahariens au sol et des tentes traditionnelles en poil de chameau au cœur de Dakhla. Mousse Délidol garantie 25 ans et tissu coton haut de gamme. Livraison dans toutes les villes du Maroc en 10-15 jours."
+      "title": "Salon Marocain Traditionnel & Sahraoui sur Mesure | Dakhla Majalis",
+      "description": "Salon marocain traditionnel et sahraoui fabriqué à la main au cœur de Dakhla. Mousse Dolidol garantie 25 ans, tissu coton haut de gamme. Livraison dans tout le Maroc en 10-15 jours."
     },
     "products": {
-      "title": "Nos produits | Dakhla Majalis",
-      "description": "Découvrez notre collection de salons sahariens authentiques, assises au sol et tentes traditionnelles d'une qualité exceptionnelle."
+      "title": "Salons Marocains Traditionnels & Sahraoui | Dakhla Majalis",
+      "description": "Découvrez nos salons marocains : assises au sol traditionnelles et sahariennes, tentes en poil de chameau. Fabrication artisanale à Dakhla, livraison partout au Maroc."
     },
     "contact": {
       "title": "Contactez-nous | Dakhla Majalis",
@@ -999,24 +999,24 @@
     },
     "categories": {
       "sets": {
-        "title": "Majalis sur mesure | Dakhla Majalis",
-        "description": "Salons sahariens sur mesure pour votre espace. Design personnalise avec les meilleurs tissus et mousses marocaines. Fait main par les artisans de Dakhla."
+        "title": "Salon Marocain sur Mesure | Dakhla Majalis",
+        "description": "Salon marocain traditionnel et sahraoui sur mesure pour votre espace. Personnalisé avec les meilleurs tissus et mousses Dolidol. Fait main par les artisans de Dakhla."
       },
       "ready": {
-        "title": "Majalis prets a livrer | Dakhla Majalis",
-        "description": "Majalis prets a livrer. Une collection variee d'assises sahariennes de differentes tailles et couleurs. Fait main de Dakhla."
+        "title": "Salon Marocain Prêt à Livrer | Dakhla Majalis",
+        "description": "Salons marocains prêts à livrer. Une collection variée d'assises sahariennes de différentes tailles et couleurs. Fait main à Dakhla, livraison partout au Maroc."
       },
       "outdoor": {
-        "title": "Assises d'exterieur | Dakhla Majalis",
-        "description": "Assises d'exterieur ideales pour les voyages et le camping. Durables et confortables, fabriquees avec des materiaux resistants a l'usage exterieur."
+        "title": "Salon Marocain d'Extérieur | Dakhla Majalis",
+        "description": "Salons marocains d'extérieur idéals pour les voyages et le camping. Durables et confortables, fabriqués avec des matériaux résistants à l'usage extérieur."
       },
       "tents": {
-        "title": "Tentes en poil de chameau | Dakhla Majalis",
-        "description": "Tentes traditionnelles marocaines authentiques en poil de chameau. Fabriquees a la main avec des materiaux naturels du desert de Dakhla."
+        "title": "Tente Marocaine Traditionnelle en Poil de Chameau | Dakhla Majalis",
+        "description": "Tentes marocaines traditionnelles authentiques en poil de chameau. Fabriquées à la main avec des matériaux naturels du désert de Dakhla."
       },
       "accessories": {
-        "title": "Accessoires et decoration | Dakhla Majalis",
-        "description": "Accessoires et decoration sahariennes authentiques. Coussins, tapis et pieces de decoration qui ajoutent une touche patrimoniale a votre maison."
+        "title": "Accessoires & Décoration Salon Marocain | Dakhla Majalis",
+        "description": "Accessoires et décoration de salon marocain authentiques. Coussins, tapis et pièces de décoration qui ajoutent une touche patrimoniale à votre maison."
       },
       "fallbackTitle": "{category} | Dakhla Majalis",
       "fallbackDescription": "Parcourez les produits {category} de Dakhla Majalis. Fait main par des artisans marocains."

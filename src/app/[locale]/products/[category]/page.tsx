@@ -51,8 +51,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryProductsPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
+  const t = await getTranslations('metadata');
+  const isKnown = knownCategories.includes(category);
+  const heading = (isKnown
+    ? t(`categories.${category}.title` as any)
+    : t('categories.fallbackTitle', { category })
+  ).replace(' | Dakhla Majalis', '');
   return (
     <Suspense>
+      <h1 className="sr-only">{heading}</h1>
       <CategorySubcategoriesContent categorySlug={decodeURIComponent(category)} />
     </Suspense>
   );

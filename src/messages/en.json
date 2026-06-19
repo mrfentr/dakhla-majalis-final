@@ -970,12 +970,12 @@
   "metadata": {
     "siteName": "Dakhla Majalis",
     "home": {
-      "title": "Dakhla Majalis | First Brand Specialized in Saharan Salons from Southern Morocco",
-      "description": "We craft traditional Saharan floor seating and camel hair tents from the heart of Dakhla. Délidol foam with 25-year warranty and premium cotton fabric. Delivery to all Moroccan cities in 10-15 days."
+      "title": "Moroccan Saharan Salon (Majlis) Handmade in Dakhla | Dakhla Majalis",
+      "description": "Handmade Moroccan Saharan salons (majalis) and traditional camel-hair tents from Dakhla. Dolidol foam with 25-year warranty, premium cotton fabric. Delivery across Morocco in 10-15 days."
     },
     "products": {
-      "title": "Our Products | Dakhla Majalis",
-      "description": "Discover our collection of authentic Saharan salons, floor seating, and traditional tents of exceptional quality."
+      "title": "Moroccan Salons & Saharan Majalis | Dakhla Majalis",
+      "description": "Discover our Moroccan salons: traditional and Saharan floor seating, plus camel-hair tents. Handcrafted in Dakhla, delivered across Morocco."
     },
     "contact": {
       "title": "Contact Us | Dakhla Majalis",
@@ -999,24 +999,24 @@
     },
     "categories": {
       "sets": {
-        "title": "Custom Majalis | Dakhla Majalis",
-        "description": "Saharan salons tailored to your space. Custom design with the finest fabrics and Moroccan foam. Handmade by Dakhla artisans."
+        "title": "Custom Moroccan Salon (Majlis) | Dakhla Majalis",
+        "description": "Custom Moroccan Saharan salons tailored to your space. Bespoke design with the finest fabrics and Moroccan foam. Handmade by Dakhla artisans."
       },
       "ready": {
-        "title": "Ready-Made Majalis | Dakhla Majalis",
-        "description": "Ready-to-deliver majalis. A diverse collection of Saharan seating in various sizes and colors. Handmade from Dakhla."
+        "title": "Ready-to-Ship Moroccan Salon | Dakhla Majalis",
+        "description": "Ready-to-deliver Moroccan salons. A diverse collection of Saharan seating in various sizes and colors. Handmade from Dakhla."
       },
       "outdoor": {
-        "title": "Outdoor Seating | Dakhla Majalis",
-        "description": "Outdoor seating perfect for trips and camping. Durable and comfortable, made from materials built for outdoor use."
+        "title": "Outdoor Moroccan Salon | Dakhla Majalis",
+        "description": "Outdoor Moroccan salon seating perfect for trips and camping. Durable and comfortable, made from materials built for outdoor use."
       },
       "tents": {
-        "title": "Camel Hair Tents | Dakhla Majalis",
-        "description": "Authentic traditional Moroccan camel hair tents. Handmade with natural materials from the Dakhla desert."
+        "title": "Traditional Moroccan Camel-Hair Tent | Dakhla Majalis",
+        "description": "Authentic traditional Moroccan camel-hair tents to complete your Moroccan salon. Handmade with natural materials from the Dakhla desert."
       },
       "accessories": {
-        "title": "Accessories & Decor | Dakhla Majalis",
-        "description": "Authentic Saharan home accessories and decor. Cushions, rugs, and decor pieces that add a heritage touch to your home."
+        "title": "Moroccan Salon Accessories & Decor | Dakhla Majalis",
+        "description": "Authentic Moroccan salon accessories and Saharan decor. Cushions, rugs, and decor pieces that add a heritage touch to your home."
       },
       "fallbackTitle": "{category} | Dakhla Majalis",
       "fallbackDescription": "Browse {category} products from Dakhla Majalis. Handmade by Moroccan artisans."
