@@ -41,8 +41,16 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Every entry here is emitted into the srcset of EVERY <Image> on the page.
+    // The full 8+8 default put 583 KB of srcset text (46% of the document) into
+    // the homepage HTML. These four each map to a real breakpoint:
+    //   640  phone 1x        828  phone 2x (414pt)
+    //   1200 tablet/laptop   1920 desktop, and the cap for 2x large screens
+    // 2048/3840 were only ever used by high-DPI desktops and cost the most bytes.
+    deviceSizes: [640, 828, 1200, 1920],
+    // Used for fixed-size images (`sizes` given in px) such as thumbnails,
+    // avatars and the dashboard picker cards.
+    imageSizes: [64, 128, 256, 384],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

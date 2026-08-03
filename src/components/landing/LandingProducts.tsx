@@ -136,13 +136,38 @@ export function LandingProducts({ preloadedProducts, preloadedCategories }: Land
     });
   };
 
-  const handleClick = (product: (typeof products)[0]) => {
-    if (product.type === 'individual' && product.slug) {
-      router.push(`/product/${product.slug}`);
-    } else if (product.type === 'pattern') {
-      router.push(`/checkout?product=${product.productId}`);
-    }
+  const hrefFor = (product: (typeof products)[0]) => {
+    if (product.type === 'individual' && product.slug) return `/product/${product.slug}`;
+    if (product.type === 'pattern') return `/checkout?product=${product.productId}`;
+    return null;
   };
+
+  const handleClick = (product: (typeof products)[0]) => {
+    const href = hrefFor(product);
+    if (href) router.push(href);
+  };
+
+  // Warm the destination on intent (hover on desktop, first touch on mobile) so
+  // the click lands on an already-fetched page. Prefetching every card up front
+  // would be the same mistake as preloading every carousel slide, so this is
+  // deliberately driven by the user pointing at a specific card.
+  const prefetched = useRef<Set<string>>(new Set());
+  const prefetchProduct = useCallback((product: (typeof products)[0]) => {
+    const href = hrefFor(product);
+    if (!href || prefetched.current.has(href)) return;
+    prefetched.current.add(href);
+    router.prefetch(href);
+    // Warm the product's own image too — router.prefetch only fetches the
+    // route payload, not the media the page will then ask for.
+    const main = product.images?.[0];
+    if (main) {
+      const img = new window.Image();
+      img.fetchPriority = 'low';
+      img.decoding = 'async';
+      img.src = main;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router]);
 
   // Responsive values
   const sectionPadding = isMobile
@@ -602,8 +627,9 @@ export function LandingProducts({ preloadedProducts, preloadedCategories }: Land
                     <div
                       key={product._id}
                       onClick={() => handleClick(product)}
-                      onMouseEnter={() => setHoveredCard(product._id)}
+                      onMouseEnter={() => { setHoveredCard(product._id); prefetchProduct(product); }}
                       onMouseLeave={() => setHoveredCard(null)}
+                      onTouchStart={() => prefetchProduct(product)}
                       style={{
                         flexShrink: 0,
                         width: isMobile ? 220 : isTablet ? 260 : 280,

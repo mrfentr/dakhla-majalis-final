@@ -35,6 +35,7 @@ import { api } from '@convex/_generated/api';
 import toast from 'react-hot-toast';
 import {useTranslations, useLocale} from 'next-intl';
 import { getLocalizedField, getVariantName } from '@/lib/utils';
+import { cappedImageSource } from '@/lib/image-source';
 
 export function ProductDetails({ slug, preloadedProduct }: { slug: string; preloadedProduct: Preloaded<typeof api.products.getProductBySlug> }) {
   const t = useTranslations('productDetail');
@@ -354,7 +355,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
               }}
             >
               <Image
-                src={images[currentIndex] || product.image}
+                src={cappedImageSource(images[currentIndex] || product.image)}
                 alt={getLocalizedField(product.title, locale)}
                 fill
                 className="object-cover"
@@ -419,7 +420,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
                     }`}
                   >
                     <Image
-                      src={imageUrl}
+                      src={cappedImageSource(imageUrl)}
                       alt={`${getLocalizedField(product.title, locale)} - ${index + 1}`}
                       fill
                       className="object-cover"
@@ -550,7 +551,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
                         {variant.image ? (
                           <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 border-white shadow-sm">
                             <Image
-                              src={variant.image}
+                              src={cappedImageSource(variant.image)}
                               alt={variantDisplayName}
                               fill
                               className="object-cover"
@@ -625,7 +626,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
                               className="group relative aspect-square rounded-xl overflow-hidden bg-neutral-200 cursor-pointer ring-0 hover:ring-2 hover:ring-[#BD7C48]/40 transition-all duration-200 hover:shadow-md"
                             >
                               <Image
-                                src={imgUrl}
+                                src={cappedImageSource(imgUrl)}
                                 alt={`${selectedColor} - ${idx + 1}`}
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -1118,7 +1119,7 @@ export function ProductDetails({ slug, preloadedProduct }: { slug: string; prelo
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={lightboxImage}
+              src={cappedImageSource(lightboxImage)}
               alt={selectedColor || ''}
               fill
               className="object-contain rounded-lg"

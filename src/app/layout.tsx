@@ -155,8 +155,10 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://ik.imagekit.io" />
         <link rel="dns-prefetch" href="https://ik.imagekit.io" />
 
-        {/* Preload hero image for LCP */}
-        <link rel="preload" as="image" href="https://x619bxlezd.ufs.sh/f/hTbn04GjgYB4jGj90rC2Fbmlsd8HkYD4MrRywzX5IfuVaGtN" />
+        {/* Hero image LCP preload is emitted by next/image via the `priority`
+            prop on the hero <Image> in LandingHero.tsx, which produces the
+            correct /_next/image srcset URLs. Do not add a manual raw-URL
+            preload here: it never matches what the page actually requests. */}
 
         {/* Structured Data - Organization */}
         <script

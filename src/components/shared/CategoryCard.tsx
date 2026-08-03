@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from '@/i18n/navigation';
 import { theme } from '@/components/landing/theme';
 import { getLocalizedField } from '@/lib/utils';
+import { cappedImageSource } from '@/lib/image-source';
 
 interface CategoryCardProps {
   id: string;
@@ -73,7 +74,7 @@ export function CategoryCard({
       >
         {image ? (
           <Image
-            src={image}
+            src={cappedImageSource(image)}
             alt={getLocalizedField(name, locale)}
             fill
             style={{

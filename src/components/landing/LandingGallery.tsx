@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { theme } from './theme';
 import { useGetGalleryImages } from '@/hooks/useConvex';
 import {useTranslations, useLocale} from 'next-intl';
+import { cappedImageSource } from '@/lib/image-source';
 
 const INITIAL_COUNT = 12;
 
@@ -338,7 +339,7 @@ export function LandingGallery() {
             }}
           >
             <Image
-              src={src}
+              src={cappedImageSource(src)}
               alt={t('gallery.imageAlt', { number: index + 1 })}
               fill
               style={{
@@ -580,7 +581,7 @@ export function LandingGallery() {
             }}
           >
             <Image
-              src={allImages[lightboxIndex]}
+              src={cappedImageSource(allImages[lightboxIndex])}
               alt={t('gallery.imageAlt', { number: lightboxIndex + 1 })}
               fill
               style={{ objectFit: 'contain' }}
