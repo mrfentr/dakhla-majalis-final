@@ -381,7 +381,7 @@
       "selectProductSubtitle": "Select the majlis that suits your taste",
       "selectRoomTitle": "Choose Your Room Layout",
       "selectRoomSubtitle": "Select the number of walls you want to furnish",
-      "measurementsTitle": "Enter Wall Measurements in Centimeters",
+      "measurementsTitle": "Enter Wall Measurements",
       "measurementsSubtitle": "Measure from the start to the end of the wall. If there is a door, subtract its width.",
       "measurementsTip": "Measure from the start to the end of the wall. If there is a door, subtract its width from the measurement.",
       "productInfoLabel": "Product Info",
@@ -400,7 +400,9 @@
       "rightWall": "Right Wall",
       "topWall": "Top Wall",
       "leftToDoor": "Left to Door",
-      "doorToRight": "Door to Right"
+      "doorToRight": "Door to Right",
+      "placeholder": "e.g. 450 or 4.5 m",
+      "diagramHint": "Tap a wall on the plan to enter its measurement. You can type metres (4.5) or centimetres (450)."
     },
     "step2": {
       "optimizingTitle": "Calculating the Optimal Design...",

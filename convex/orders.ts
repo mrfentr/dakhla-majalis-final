@@ -131,12 +131,24 @@ export const createDirectPurchaseOrder = mutation({
     const now = Date.now();
     const reference = generateOrderReference();
 
-    // Check if customer exists, if not create one
+    // Check if customer exists, if not create one.
+    // Email is optional (checkout allows it blank, and admin orders taken by
+    // phone usually have none). Matching on a blank email would merge every
+    // email-less customer into one record, so fall back to the phone number.
     let customerId = undefined;
-    const existingCustomer = await ctx.db
-      .query("customers")
-      .withIndex("by_email", (q) => q.eq("email", args.customerInfo.email))
-      .first();
+    const emailKey = args.customerInfo.email.trim();
+    const phoneKey = args.customerInfo.phone.trim();
+    const existingCustomer = emailKey
+      ? await ctx.db
+          .query("customers")
+          .withIndex("by_email", (q) => q.eq("email", emailKey))
+          .first()
+      : phoneKey
+        ? await ctx.db
+            .query("customers")
+            .withIndex("by_phone", (q) => q.eq("phone", phoneKey))
+            .first()
+        : null;
 
     if (existingCustomer) {
       customerId = existingCustomer._id;
@@ -341,12 +353,24 @@ export const createRoomMeasurementOrder = mutation({
     const now = Date.now();
     const reference = generateOrderReference();
 
-    // Check if customer exists, if not create one
+    // Check if customer exists, if not create one.
+    // Email is optional (checkout allows it blank, and admin orders taken by
+    // phone usually have none). Matching on a blank email would merge every
+    // email-less customer into one record, so fall back to the phone number.
     let customerId = undefined;
-    const existingCustomer = await ctx.db
-      .query("customers")
-      .withIndex("by_email", (q) => q.eq("email", args.customerInfo.email))
-      .first();
+    const emailKey = args.customerInfo.email.trim();
+    const phoneKey = args.customerInfo.phone.trim();
+    const existingCustomer = emailKey
+      ? await ctx.db
+          .query("customers")
+          .withIndex("by_email", (q) => q.eq("email", emailKey))
+          .first()
+      : phoneKey
+        ? await ctx.db
+            .query("customers")
+            .withIndex("by_phone", (q) => q.eq("phone", phoneKey))
+            .first()
+        : null;
 
     if (existingCustomer) {
       customerId = existingCustomer._id;

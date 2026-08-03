@@ -278,8 +278,15 @@ export default function DashboardPage() {
           <h2 className="text-lg font-black text-neutral-900 mb-4">Actions rapides</h2>
           <div className="space-y-2">
             <button
-              onClick={() => router.push('/dashboard/blog/new')}
+              onClick={() => router.push('/dashboard/orders/new')}
               className="w-full flex items-center gap-2 p-3 rounded-lg bg-[#BD7C48] hover:bg-[#A0673D] text-white transition-all"
+            >
+              <ShoppingCart className="w-4 h-4 flex-shrink-0" />
+              <span className="font-bold text-sm">Nouvelle commande</span>
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/blog/new')}
+              className="w-full flex items-center gap-2 p-3 rounded-lg border border-neutral-300 hover:border-[#BD7C48] hover:bg-neutral-50 text-neutral-900 transition-all"
             >
               <FileText className="w-4 h-4 flex-shrink-0" />
               <span className="font-bold text-sm">Créer un article</span>

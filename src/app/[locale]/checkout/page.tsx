@@ -36,6 +36,15 @@ import {
   LayoutType,
 } from '@/lib/ai-room-visualizer';
 import type { CarpetFitResult, CarpetInventory, MultiCarpetResult } from '@/lib/ai-room-visualizer';
+import RoomShapeDiagram, { type DiagramLayout, type DiagramWallValue } from '@/components/checkout/RoomShapeDiagram';
+import {
+  parseMeasurement,
+  isMeasurementInRange,
+  describeMeasurement,
+  toCm,
+  MIN_WALL_CM,
+  MAX_WALL_CM,
+} from '@/lib/measurements';
 import { useMutation, useQuery } from 'convex/react';
 import { api } from '@convex/_generated/api';
 import type { Id } from '@convex/_generated/dataModel';
@@ -205,6 +214,9 @@ function Checkout2Page() {
     bottomLeftToDoor: '',
     doorToBottomRight: '',
   });
+
+  // Wall currently being measured — highlighted in the room diagram.
+  const [activeWall, setActiveWall] = useState<string | null>(null);
 
   // AI optimization state
   const [isOptimizing, setIsOptimizing] = useState(false);
@@ -423,16 +435,12 @@ function Checkout2Page() {
   // Track which measurement fields have been touched/blurred
   const [touchedFields, setTouchedFields] = useState<Record<string, boolean>>({});
 
-  // Check if a measurement value is valid
-  const isMeasurementValid = (value: string): boolean | null => {
-    if (!value) return null; // not yet entered
-    const val = parseInt(value);
-    if (isNaN(val)) return false;
-    return val >= 110 && val <= 2000;
-  };
+  // Check if a measurement value is valid. Accepts metres or centimetres —
+  // see @/lib/measurements for how the unit is detected.
+  const isMeasurementValid = (value: string): boolean | null => isMeasurementInRange(value);
 
   // Max wall length
-  const MAX_WALL_LENGTH = 2000;
+  const MAX_WALL_LENGTH = MAX_WALL_CM;
 
   // Scroll to top when step changes
   useEffect(() => {
@@ -532,11 +540,10 @@ function Checkout2Page() {
   };
 
   const validateMeasurementField = (value: string, fieldName: string, errors: Record<string, string>) => {
-    const minLength = 110;
-    const val = parseInt(value);
-    if (!value || isNaN(val) || val < minLength) {
-      errors[fieldName] = t('validation.invalidMeasurementsMin', { min: minLength });
-    } else if (val > MAX_WALL_LENGTH) {
+    const { cm } = parseMeasurement(value);
+    if (cm === null || cm < MIN_WALL_CM) {
+      errors[fieldName] = t('validation.invalidMeasurementsMin', { min: MIN_WALL_CM });
+    } else if (cm > MAX_WALL_LENGTH) {
       errors[fieldName] = t('validation.invalidMeasurementsMax', { max: MAX_WALL_LENGTH });
     }
   };
@@ -600,25 +607,26 @@ function Checkout2Page() {
     return config?.layoutType || 'l-shape';
   };
 
+  // Always returns whole centimetres, whatever unit the customer typed.
   const getDimensions = (): Record<string, number> => {
     switch (selectedConfig) {
       case 'single':
-        return { length: parseInt(measurements.single) || 0 };
+        return { length: toCm(measurements.single) };
       case 'L':
-        return { h: parseInt(measurements.wall1) || 0, v: parseInt(measurements.wall2) || 0 };
+        return { h: toCm(measurements.wall1), v: toCm(measurements.wall2) };
       case 'U':
         return {
-          l: parseInt(measurements.wall1) || 0,
-          c: parseInt(measurements.wall2) || 0, // center wall
-          r: parseInt(measurements.wall3) || 0,
+          l: toCm(measurements.wall1),
+          c: toCm(measurements.wall2), // center wall
+          r: toCm(measurements.wall3),
         };
       case 'full':
         return {
-          top: parseInt(measurements.top) || 0,
-          left: parseInt(measurements.left) || 0,
-          right: parseInt(measurements.right) || 0,
-          bottomLeft: parseInt(measurements.bottomLeftToDoor) || 0,
-          bottomRight: parseInt(measurements.doorToBottomRight) || 0,
+          top: toCm(measurements.top),
+          left: toCm(measurements.left),
+          right: toCm(measurements.right),
+          bottomLeft: toCm(measurements.bottomLeftToDoor),
+          bottomRight: toCm(measurements.doorToBottomRight),
         };
       default:
         return {};
@@ -1220,102 +1228,15 @@ function Checkout2Page() {
     </div>
   );
 
-  const renderShapeIcon = (shape: string, isSelected: boolean) => {
-    const seatColor = isSelected ? theme.colors.primary : '#C4B5A6';
-    const cushionColor = isSelected ? '#C97A56' : '#B8A99A';
-    const wallColor = isSelected ? '#D4C8BC' : '#E8E0D5';
-    const floorColor = isSelected ? '#FAF6F1' : '#F5F0E8';
-    const s = isMobile ? 64 : 80;
-
-    const pad = s * 0.08;
-    const rX = pad;
-    const rY = pad;
-    const rW = s - pad * 2;
-    const rH = s * 0.7 - pad * 2;
-    const sD = rW * 0.13;
-    const cR = sD * 0.3;
-
-    if (shape === 'single') {
-      return (
-        <svg width={s} height={s * 0.7} viewBox={`0 0 ${s} ${s * 0.7}`} fill="none">
-          <rect x={rX} y={rY} width={rW} height={rH} rx={4} fill={floorColor} stroke={wallColor} strokeWidth={1.5} />
-          <rect x={rX + sD * 0.5} y={rY + sD * 0.4} width={rW - sD} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-          {[0.25, 0.5, 0.75].map((p, i) => (
-            <circle key={i} cx={rX + sD * 0.5 + (rW - sD) * p} cy={rY + sD * 0.4 + sD * 0.5} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          <rect x={s / 2 - rW * 0.1} y={rY + rH - 0.75} width={rW * 0.2} height={2} fill={floorColor} />
-        </svg>
-      );
-    }
-
-    if (shape === 'L') {
-      return (
-        <svg width={s} height={s * 0.7} viewBox={`0 0 ${s} ${s * 0.7}`} fill="none">
-          <rect x={rX} y={rY} width={rW} height={rH} rx={4} fill={floorColor} stroke={wallColor} strokeWidth={1.5} />
-          <rect x={rX + sD * 0.5} y={rY + sD * 0.4} width={rW - sD} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-          <rect x={rX + rW - sD * 0.4 - sD} y={rY + sD * 0.4} width={sD} height={rH - sD * 0.8} rx={2} fill={seatColor} opacity={0.85} />
-          {[0.2, 0.45, 0.65].map((p, i) => (
-            <circle key={`t${i}`} cx={rX + sD * 0.5 + (rW - sD * 2) * p} cy={rY + sD * 0.4 + sD * 0.5} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          {[0.35, 0.65].map((p, i) => (
-            <circle key={`r${i}`} cx={rX + rW - sD * 0.4 - sD * 0.5} cy={rY + sD * 0.4 + (rH - sD * 0.8) * p} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          <rect x={rX + rW * 0.08} y={rY + rH - 0.75} width={rW * 0.2} height={2} fill={floorColor} />
-        </svg>
-      );
-    }
-
-    if (shape === 'U') {
-      return (
-        <svg width={s} height={s * 0.7} viewBox={`0 0 ${s} ${s * 0.7}`} fill="none">
-          <rect x={rX} y={rY} width={rW} height={rH} rx={4} fill={floorColor} stroke={wallColor} strokeWidth={1.5} />
-          <rect x={rX + sD * 0.5} y={rY + sD * 0.4} width={rW - sD} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-          <rect x={rX + sD * 0.4} y={rY + sD * 0.4} width={sD} height={rH - sD * 0.8} rx={2} fill={seatColor} opacity={0.85} />
-          <rect x={rX + rW - sD * 0.4 - sD} y={rY + sD * 0.4} width={sD} height={rH - sD * 0.8} rx={2} fill={seatColor} opacity={0.85} />
-          {[0.35, 0.65].map((p, i) => (
-            <circle key={`t${i}`} cx={rX + sD * 0.5 + (rW - sD * 2) * p + sD * 0.5} cy={rY + sD * 0.4 + sD * 0.5} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          {[0.35, 0.7].map((p, i) => (
-            <circle key={`l${i}`} cx={rX + sD * 0.4 + sD * 0.5} cy={rY + sD * 0.4 + (rH - sD * 0.8) * p} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          {[0.35, 0.7].map((p, i) => (
-            <circle key={`r${i}`} cx={rX + rW - sD * 0.4 - sD * 0.5} cy={rY + sD * 0.4 + (rH - sD * 0.8) * p} r={cR} fill={cushionColor} opacity={0.6} />
-          ))}
-          <rect x={s / 2 - rW * 0.1} y={rY + rH - 0.75} width={rW * 0.2} height={2} fill={floorColor} />
-        </svg>
-      );
-    }
-
-    // full
-    return (
-      <svg width={s} height={s * 0.7} viewBox={`0 0 ${s} ${s * 0.7}`} fill="none">
-        <rect x={rX} y={rY} width={rW} height={rH} rx={4} fill={floorColor} stroke={wallColor} strokeWidth={1.5} />
-        <rect x={rX + sD * 0.5} y={rY + sD * 0.4} width={rW - sD} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-        <rect x={rX + sD * 0.4} y={rY + sD * 0.4} width={sD} height={rH - sD * 0.8} rx={2} fill={seatColor} opacity={0.85} />
-        <rect x={rX + rW - sD * 0.4 - sD} y={rY + sD * 0.4} width={sD} height={rH - sD * 0.8} rx={2} fill={seatColor} opacity={0.85} />
-        <rect x={rX + sD * 0.4} y={rY + rH - sD * 0.4 - sD} width={rW * 0.28} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-        <rect x={rX + rW - sD * 0.4 - rW * 0.28} y={rY + rH - sD * 0.4 - sD} width={rW * 0.28} height={sD} rx={2} fill={seatColor} opacity={0.85} />
-        {[0.35, 0.65].map((p, i) => (
-          <circle key={`t${i}`} cx={rX + sD * 0.5 + (rW - sD * 2) * p + sD * 0.5} cy={rY + sD * 0.4 + sD * 0.5} r={cR} fill={cushionColor} opacity={0.6} />
-        ))}
-        {[0.35, 0.7].map((p, i) => (
-          <circle key={`l${i}`} cx={rX + sD * 0.4 + sD * 0.5} cy={rY + sD * 0.4 + (rH - sD * 0.8) * p} r={cR} fill={cushionColor} opacity={0.6} />
-        ))}
-        {[0.35, 0.7].map((p, i) => (
-          <circle key={`r${i}`} cx={rX + rW - sD * 0.4 - sD * 0.5} cy={rY + sD * 0.4 + (rH - sD * 0.8) * p} r={cR} fill={cushionColor} opacity={0.6} />
-        ))}
-        <rect x={s / 2 - rW * 0.1} y={rY + rH - 0.75} width={rW * 0.2} height={2} fill={floorColor} />
-        <path
-          d={`M ${s / 2 - rW * 0.1} ${rY + rH - 0.75} A ${rW * 0.08} ${rW * 0.08} 0 0 1 ${s / 2 + rW * 0.1} ${rY + rH - 0.75}`}
-          stroke={wallColor}
-          strokeWidth={0.8}
-          strokeDasharray="2 1.5"
-          fill="none"
-          opacity={0.5}
-        />
-      </svg>
-    );
-  };
+  const renderShapeIcon = (shape: string, isSelected: boolean) => (
+    <RoomShapeDiagram
+      layout={shape as DiagramLayout}
+      compact
+      accent={isSelected}
+      muted={!isSelected}
+      size={isMobile ? 96 : 120}
+    />
+  );
 
   const renderRoomSVG = (forSummary = false) => {
     // If we have an optimization result, show the detailed floor plan
@@ -1430,6 +1351,54 @@ function Checkout2Page() {
     );
   };
 
+  // Wall fields for the current room shape, in the order the customer fills them.
+  const getWallFields = (): Array<{ key: keyof typeof measurements; label: string }> => {
+    switch (selectedConfig) {
+      case 'single':
+        return [{ key: 'single', label: t('measurements.wallLength') }];
+      case 'L':
+        return [
+          { key: 'wall1', label: t('measurements.horizontalWall') },
+          { key: 'wall2', label: t('measurements.verticalWall') },
+        ];
+      case 'U':
+        return [
+          { key: 'wall1', label: t('measurements.leftWall') },
+          { key: 'wall2', label: t('measurements.centerWall') },
+          { key: 'wall3', label: t('measurements.rightWall') },
+        ];
+      case 'full':
+        return [
+          { key: 'top', label: t('measurements.topWall') },
+          { key: 'left', label: t('measurements.leftWall') },
+          { key: 'right', label: t('measurements.rightWall') },
+          { key: 'bottomLeftToDoor', label: t('measurements.leftToDoor') },
+          { key: 'doorToBottomRight', label: t('measurements.doorToRight') },
+        ];
+      default:
+        return [];
+    }
+  };
+
+  // Wall id -> what the diagram should draw for it.
+  const getDiagramValues = (): Partial<Record<string, DiagramWallValue>> => {
+    const out: Partial<Record<string, DiagramWallValue>> = {};
+    for (const { key, label } of getWallFields()) {
+      const raw = measurements[key];
+      out[key] = {
+        cm: parseMeasurement(raw).cm,
+        valid: touchedFields[`m-${key}`] ? isMeasurementValid(raw) : null,
+        label,
+      };
+    }
+    return out;
+  };
+
+  const focusWall = (wallKey: string) => {
+    setActiveWall(wallKey);
+    document.getElementById(`m-${wallKey}`)?.focus();
+  };
+
   const renderMeasurementFields = () => {
     const inputWrapStyle: React.CSSProperties = {
       backgroundColor: theme.colors.white,
@@ -1454,9 +1423,6 @@ function Checkout2Page() {
       fontSize: isMobile ? 18 : 17,
       fontWeight: 500,
       width: '100%',
-      MozAppearance: 'textfield',
-      WebkitAppearance: 'none',
-      appearance: 'textfield' as React.CSSProperties['appearance'],
     };
 
     const labelStyle = {
@@ -1472,7 +1438,8 @@ function Checkout2Page() {
       if (input) input.focus();
     };
 
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>, wallKey: string) => {
+      setActiveWall(wallKey);
       const wrap = e.target.closest('[data-input-wrap]') as HTMLElement;
       if (wrap) {
         wrap.style.borderColor = theme.colors.primary;
@@ -1484,6 +1451,8 @@ function Checkout2Page() {
       const wrap = e.target.closest('[data-input-wrap]') as HTMLElement;
       const fieldId = e.target.id;
       const value = e.target.value;
+
+      setActiveWall(null);
 
       // Mark field as touched
       setTouchedFields(prev => ({ ...prev, [fieldId]: true }));
@@ -1503,8 +1472,11 @@ function Checkout2Page() {
       }
     };
 
-    const renderInput = (id: string, value: string, onChange: (val: string) => void, placeholder = '0') => {
+    const renderInput = (wallKey: string, value: string, onChange: (val: string) => void) => {
+      const id = `m-${wallKey}`;
       const isValid = touchedFields[id] ? isMeasurementValid(value) : null;
+      const parsed = parseMeasurement(value);
+      const conversion = describeMeasurement(value);
 
       return (
         <div>
@@ -1512,31 +1484,52 @@ function Checkout2Page() {
             data-input-wrap
             style={{
               ...inputWrapStyle,
-              border: `1.5px solid ${isValid === true ? '#22C55E' : isValid === false ? '#DC2626' : theme.colors.border}`,
+              border: `1.5px solid ${isValid === true ? '#22C55E' : isValid === false ? '#DC2626' : activeWall === wallKey ? theme.colors.primary : theme.colors.border}`,
             }}
             onClick={() => handleWrapClick(id)}
           >
             <input
               id={id}
-              type="number"
-              inputMode="numeric"
-              min={110}
-              max={MAX_WALL_LENGTH}
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={value}
-              placeholder={placeholder}
+              placeholder={t('measurements.placeholder')}
               onChange={(e) => onChange(e.target.value)}
-              onFocus={handleFocus}
+              onFocus={(e) => handleFocus(e, wallKey)}
               onBlur={handleBlur}
               style={inputFieldStyle}
             />
-            <span style={{ color: theme.colors.textLight, fontFamily: theme.fonts.english, fontSize: 14, flexShrink: 0, ...(isRTL ? { marginLeft: 8 } : { marginRight: 8 }) }}>cm</span>
-            <style>{`
-              input[type=number]::-webkit-inner-spin-button,
-              input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-              input[type=number] { -moz-appearance: textfield; }
-              input[type=number]:focus { outline: none !important; box-shadow: none !important; }
-            `}</style>
+            {/* Echoes the unit we detected, so "4,5" visibly reads as metres. */}
+            <span
+              style={{
+                color: parsed.unit === 'm' ? theme.colors.primary : theme.colors.textLight,
+                fontFamily: theme.fonts.english,
+                fontSize: 14,
+                fontWeight: parsed.unit === 'm' ? 700 : 400,
+                flexShrink: 0,
+                ...(isRTL ? { marginLeft: 8 } : { marginRight: 8 }),
+              }}
+            >
+              {parsed.unit === 'm' ? 'm' : 'cm'}
+            </span>
           </div>
+
+          {/* Live conversion echo — only shown when we converted from metres */}
+          {conversion && isValid !== false && (
+            <span style={{
+              color: theme.colors.textMedium,
+              fontFamily: theme.fonts.english,
+              fontSize: 12,
+              marginTop: 4,
+              display: 'block',
+              direction: 'ltr',
+              ...(isRTL ? { textAlign: 'right' as const } : {}),
+            }}>
+              {conversion.from} → <strong style={{ color: '#3F7A4F' }}>{conversion.cm} cm</strong>
+            </span>
+          )}
+
           {touchedFields[id] && isValid === false && (
             <span style={{
               color: '#DC2626',
@@ -1545,10 +1538,10 @@ function Checkout2Page() {
               marginTop: 4,
               display: 'block'
             }}>
-              {t('validation.invalidMeasurementsMin', { min: 110 })} - {t('validation.invalidMeasurementsMax', { max: 2000 })}
+              {t('validation.invalidMeasurementsMin', { min: MIN_WALL_CM })} - {t('validation.invalidMeasurementsMax', { max: MAX_WALL_CM })}
             </span>
           )}
-          {touchedFields[id] && isValid === true && (
+          {touchedFields[id] && isValid === true && !conversion && (
             <span style={{
               color: '#22C55E',
               fontFamily: theme.fonts.arabic,
@@ -1563,161 +1556,62 @@ function Checkout2Page() {
       );
     };
 
-    const renderWallPreview = (highlightWall: string) => {
-      const w = 80;
-      const h = 60;
-      const pad = 8;
-      const strokeW = 3;
-      const activeColor = theme.colors.primary;
-      const inactiveColor = '#E8E0D5';
-      const fillColor = '#FAF6F1';
+    const fields = getWallFields();
 
-      if (selectedConfig === 'single') {
-        return (
-          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-            <rect x={pad} y={pad} width={w - pad * 2} height={h - pad * 2} rx={3} fill={fillColor} stroke={inactiveColor} strokeWidth={1} />
-            {/* Top wall = the single wall */}
-            <line x1={pad} y1={pad} x2={w - pad} y2={pad} stroke={activeColor} strokeWidth={strokeW} strokeLinecap="round" />
-          </svg>
-        );
-      }
+    return (
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? 20 : 32,
+          alignItems: 'start',
+        }}
+      >
+        {/* Enlarged room plan — stays visible while every wall is entered */}
+        <div
+          style={{
+            backgroundColor: theme.colors.white,
+            border: `1.5px solid ${theme.colors.border}`,
+            borderRadius: 14,
+            padding: isMobile ? 14 : 20,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 10,
+            ...(isMobile ? {} : { position: 'sticky' as const, top: 92 }),
+          }}
+        >
+          <RoomShapeDiagram
+            layout={selectedConfig as DiagramLayout}
+            values={getDiagramValues()}
+            activeWall={activeWall}
+            onWallSelect={focusWall}
+            size={isMobile ? 360 : 440}
+            isRTL={isRTL}
+          />
+          <span
+            style={{
+              color: theme.colors.textLight,
+              fontFamily: theme.fonts.arabic,
+              fontSize: isMobile ? 11 : 12,
+              textAlign: 'center',
+            }}
+          >
+            {t('measurements.diagramHint')}
+          </span>
+        </div>
 
-      if (selectedConfig === 'L') {
-        return (
-          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-            <rect x={pad} y={pad} width={w - pad * 2} height={h - pad * 2} rx={3} fill={fillColor} stroke={inactiveColor} strokeWidth={1} />
-            {/* Top wall = wall1 (horizontal) */}
-            <line x1={pad} y1={pad} x2={w - pad} y2={pad} stroke={highlightWall === 'wall1' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Right wall = wall2 (vertical) */}
-            <line x1={w - pad} y1={pad} x2={w - pad} y2={h - pad} stroke={highlightWall === 'wall2' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-          </svg>
-        );
-      }
-
-      if (selectedConfig === 'U') {
-        return (
-          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-            <rect x={pad} y={pad} width={w - pad * 2} height={h - pad * 2} rx={3} fill={fillColor} stroke={inactiveColor} strokeWidth={1} />
-            {/* Left wall = wall1 */}
-            <line x1={pad} y1={pad} x2={pad} y2={h - pad} stroke={highlightWall === 'wall1' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Top wall = wall2 (center) */}
-            <line x1={pad} y1={pad} x2={w - pad} y2={pad} stroke={highlightWall === 'wall2' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Right wall = wall3 */}
-            <line x1={w - pad} y1={pad} x2={w - pad} y2={h - pad} stroke={highlightWall === 'wall3' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-          </svg>
-        );
-      }
-
-      if (selectedConfig === 'full') {
-        return (
-          <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-            <rect x={pad} y={pad} width={w - pad * 2} height={h - pad * 2} rx={3} fill={fillColor} stroke={inactiveColor} strokeWidth={1} />
-            {/* Top wall */}
-            <line x1={pad} y1={pad} x2={w - pad} y2={pad} stroke={highlightWall === 'top' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Left wall */}
-            <line x1={pad} y1={pad} x2={pad} y2={h - pad} stroke={highlightWall === 'left' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Right wall */}
-            <line x1={w - pad} y1={pad} x2={w - pad} y2={h - pad} stroke={highlightWall === 'right' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            {/* Bottom wall - split for door */}
-            <line x1={pad} y1={h - pad} x2={w * 0.38} y2={h - pad} stroke={highlightWall === 'bottomLeftToDoor' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-            <line x1={w * 0.62} y1={h - pad} x2={w - pad} y2={h - pad} stroke={highlightWall === 'doorToBottomRight' ? activeColor : inactiveColor} strokeWidth={strokeW} strokeLinecap="round" />
-          </svg>
-        );
-      }
-
-      return null;
-    };
-
-    switch (selectedConfig) {
-      case 'single':
-        return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 12 : 16 }}>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('single')}</div>
-              <label style={labelStyle}>{t('measurements.wallLength')}</label>
-              {renderInput('m-single', measurements.single, (v) => setMeasurements({ ...measurements, single: v }))}
+        {/* One field per wall */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 14 : 18 }}>
+          {fields.map(({ key, label }) => (
+            <div key={key}>
+              <label style={labelStyle} htmlFor={`m-${key}`}>{label}</label>
+              {renderInput(key, measurements[key], (v) => setMeasurements({ ...measurements, [key]: v }))}
             </div>
-          </div>
-        );
-
-      case 'L':
-        return (
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 12 : 16 }}>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('wall1')}</div>
-              <label style={labelStyle}>{t('measurements.horizontalWall')}</label>
-              {renderInput('m-wall1', measurements.wall1, (v) => setMeasurements({ ...measurements, wall1: v }))}
-            </div>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('wall2')}</div>
-              <label style={labelStyle}>{t('measurements.verticalWall')}</label>
-              {renderInput('m-wall2', measurements.wall2, (v) => setMeasurements({ ...measurements, wall2: v }))}
-            </div>
-          </div>
-        );
-
-      case 'U':
-        return (
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: isMobile ? 12 : 16 }}>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('wall1')}</div>
-              <label style={labelStyle}>{t('measurements.leftWall')}</label>
-              {renderInput('m-wall1', measurements.wall1, (v) => setMeasurements({ ...measurements, wall1: v }))}
-            </div>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('wall2')}</div>
-              <label style={labelStyle}>{t('measurements.centerWall')}</label>
-              {renderInput('m-wall2', measurements.wall2, (v) => setMeasurements({ ...measurements, wall2: v }))}
-            </div>
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('wall3')}</div>
-              <label style={labelStyle}>{t('measurements.rightWall')}</label>
-              {renderInput('m-wall3', measurements.wall3, (v) => setMeasurements({ ...measurements, wall3: v }))}
-            </div>
-          </div>
-        );
-
-      case 'full':
-        return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 12 : 20 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 12 : 16 }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('top')}</div>
-                <label style={labelStyle}>{t('measurements.topWall')}</label>
-                {renderInput('m-top', measurements.top, (v) => setMeasurements({ ...measurements, top: v }))}
-              </div>
-              {!isMobile && <div style={{ visibility: 'hidden' }}></div>}
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 12 : 16 }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('left')}</div>
-                <label style={labelStyle}>{t('measurements.leftWall')}</label>
-                {renderInput('m-left', measurements.left, (v) => setMeasurements({ ...measurements, left: v }))}
-              </div>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('right')}</div>
-                <label style={labelStyle}>{t('measurements.rightWall')}</label>
-                {renderInput('m-right', measurements.right, (v) => setMeasurements({ ...measurements, right: v }))}
-              </div>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 12 : 16 }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('bottomLeftToDoor')}</div>
-                <label style={labelStyle}>{t('measurements.leftToDoor')}</label>
-                {renderInput('m-bl', measurements.bottomLeftToDoor, (v) => setMeasurements({ ...measurements, bottomLeftToDoor: v }))}
-              </div>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>{renderWallPreview('doorToBottomRight')}</div>
-                <label style={labelStyle}>{t('measurements.doorToRight')}</label>
-                {renderInput('m-br', measurements.doorToBottomRight, (v) => setMeasurements({ ...measurements, doorToBottomRight: v }))}
-              </div>
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
+          ))}
+        </div>
+      </div>
+    );
   };
 
   const renderStep1 = () => (

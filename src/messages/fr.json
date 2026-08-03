@@ -381,7 +381,7 @@
       "selectProductSubtitle": "Sélectionnez le salon qui correspond à vos goûts",
       "selectRoomTitle": "Choisissez la forme de votre salon",
       "selectRoomSubtitle": "Indiquez le nombre de murs à meubler",
-      "measurementsTitle": "Entrez les mesures des murs en centimètres",
+      "measurementsTitle": "Entrez les mesures des murs",
       "measurementsSubtitle": "Mesurez du début à la fin du mur. S'il y a une porte, soustrayez son espace.",
       "measurementsTip": "Mesurez du début à la fin du mur. S'il y a une porte, soustrayez son espace de la mesure.",
       "productInfoLabel": "Informations produit",
@@ -400,7 +400,9 @@
       "rightWall": "Mur droit",
       "topWall": "Mur du haut",
       "leftToDoor": "De la gauche à la porte",
-      "doorToRight": "De la porte à la droite"
+      "doorToRight": "De la porte à la droite",
+      "placeholder": "ex : 450 ou 4,5 m",
+      "diagramHint": "Touchez un mur du plan pour saisir sa mesure. Vous pouvez écrire en mètres (4,5) ou en centimètres (450)."
     },
     "step2": {
       "optimizingTitle": "Calcul du design optimal en cours...",
