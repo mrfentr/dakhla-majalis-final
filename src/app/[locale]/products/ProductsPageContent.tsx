@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useIntentPrefetch } from '@/hooks/useIntentPrefetch';
 import { LandingNavbar, LandingFooter } from '@/components/landing';
 import {
   Search,
@@ -213,21 +214,26 @@ export default function ProductsPageContent({ initialCategory = 'all' }: { initi
     return linkedProduct?._id ?? null;
   };
 
-  const handleProductClick = (product: Product) => {
+  // Single source of truth for where a card goes, so hover prefetch and click
+  // can never disagree about the destination.
+  const hrefForProduct = (product: Product): string => {
     if (product.isFabricVariant && product.fabricVariantId) {
-      // Find the majalis_set product linked to this fabric variant
       const linkedProductId = getProductIdForFabricVariant(product.fabricVariantId);
-      if (linkedProductId) {
-        router.push(`/checkout?product=${linkedProductId}`);
-      } else {
-        router.push(`/checkout`);
-      }
-    } else if (product.type === 'individual' && product.slug) {
-      router.push(`/product/${product.slug}`);
-    } else if (product.type === 'pattern') {
-      router.push(`/checkout?product=${product.productId}`);
+      return linkedProductId ? `/checkout?product=${linkedProductId}` : `/checkout`;
     }
+    if (product.type === 'individual' && product.slug) return `/product/${product.slug}`;
+    if (product.type === 'pattern') return `/checkout?product=${product.productId}`;
+    return '';
   };
+
+  const handleProductClick = (product: Product) => {
+    const href = hrefForProduct(product);
+    if (href) router.push(href);
+  };
+
+  const prefetchIntent = useIntentPrefetch(router);
+  const prefetchProduct = (product: Product) =>
+    prefetchIntent(hrefForProduct(product) || null, product.images?.[0] ?? product.image);
 
   const handleAddToCart = (e: React.MouseEvent, product: Product) => {
     e.stopPropagation();
@@ -464,8 +470,9 @@ export default function ProductsPageContent({ initialCategory = 'all' }: { initi
                   <div
                     key={cardKey}
                     onClick={() => handleProductClick(product)}
-                    onMouseEnter={() => setHoveredCard(cardKey)}
+                    onMouseEnter={() => { setHoveredCard(cardKey); prefetchProduct(product); }}
                     onMouseLeave={() => setHoveredCard(null)}
+                    onTouchStart={() => prefetchProduct(product)}
                     className={`bg-[#FDFBF7] rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 ${
                       isHovered
                         ? 'border-[#B85C38] shadow-lg -translate-y-1'
